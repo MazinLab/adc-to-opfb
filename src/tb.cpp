@@ -27,7 +27,7 @@ int main(){
 	//Run the stream input
 	for (int i=0; i<N_CYCLES;i++) { // Go through more than once to see the phase increment
 		for (int j=0;j<N_GROUPS;j++) { //takes N_RES_GROUPS cycles to get through each resonator once
-			top(istream[i*N_GROUPS+j], qstream[i*N_GROUPS+j], lane[i*N_GROUPS+j]);
+			adc_to_opfb(istream[i*N_GROUPS+j], qstream[i*N_GROUPS+j], lane[i*N_GROUPS+j]);
 		}
 	}
 
