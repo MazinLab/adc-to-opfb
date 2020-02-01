@@ -99,8 +99,8 @@ wire    ap_CS_fsm_state1;
 reg    istream_data_TDATA_blk_n;
 reg    qstream_data_TDATA_blk_n;
 reg    ap_block_state1;
-wire   [15:0] trunc_ln67_fu_64_p1;
-wire   [15:0] trunc_ln67_1_fu_138_p1;
+wire   [15:0] trunc_ln69_fu_64_p1;
+wire   [15:0] trunc_ln69_1_fu_138_p1;
 reg   [15:0] ap_return_0_preg;
 reg   [15:0] ap_return_1_preg;
 reg   [15:0] ap_return_2_preg;
@@ -204,7 +204,7 @@ always @ (posedge ap_clk) begin
         ap_return_0_preg <= 16'd0;
     end else begin
         if ((~((qstream_data_TVALID_int == 1'b0) | (istream_data_TVALID_int == 1'b0) | (ap_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-            ap_return_0_preg <= trunc_ln67_fu_64_p1;
+            ap_return_0_preg <= trunc_ln69_fu_64_p1;
         end
     end
 end
@@ -344,7 +344,7 @@ always @ (posedge ap_clk) begin
         ap_return_8_preg <= 16'd0;
     end else begin
         if ((~((qstream_data_TVALID_int == 1'b0) | (istream_data_TVALID_int == 1'b0) | (ap_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-            ap_return_8_preg <= trunc_ln67_1_fu_138_p1;
+            ap_return_8_preg <= trunc_ln69_1_fu_138_p1;
         end
     end
 end
@@ -385,7 +385,7 @@ end
 
 always @ (*) begin
     if ((~((qstream_data_TVALID_int == 1'b0) | (istream_data_TVALID_int == 1'b0) | (ap_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        ap_return_0 = trunc_ln67_fu_64_p1;
+        ap_return_0 = trunc_ln69_fu_64_p1;
     end else begin
         ap_return_0 = ap_return_0_preg;
     end
@@ -497,7 +497,7 @@ end
 
 always @ (*) begin
     if ((~((qstream_data_TVALID_int == 1'b0) | (istream_data_TVALID_int == 1'b0) | (ap_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        ap_return_8 = trunc_ln67_1_fu_138_p1;
+        ap_return_8 = trunc_ln69_1_fu_138_p1;
     end else begin
         ap_return_8 = ap_return_8_preg;
     end
@@ -576,8 +576,8 @@ always @ (*) begin
     ap_block_state1 = ((qstream_data_TVALID_int == 1'b0) | (istream_data_TVALID_int == 1'b0) | (ap_start == 1'b0) | (ap_done_reg == 1'b1));
 end
 
-assign trunc_ln67_1_fu_138_p1 = qstream_data_TDATA_int[15:0];
+assign trunc_ln69_1_fu_138_p1 = qstream_data_TDATA_int[15:0];
 
-assign trunc_ln67_fu_64_p1 = istream_data_TDATA_int[15:0];
+assign trunc_ln69_fu_64_p1 = istream_data_TDATA_int[15:0];
 
 endmodule //Block_codeRepl5_proc

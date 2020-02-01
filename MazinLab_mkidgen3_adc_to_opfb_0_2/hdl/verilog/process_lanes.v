@@ -63,6 +63,54 @@ module process_lanes (
         lane_data_14_TVALID,
         lane_data_15_TDATA,
         lane_data_15_TVALID,
+        lane_0_TLAST,
+        lane_0_TVALID,
+        lane_0_TREADY,
+        lane_1_TLAST,
+        lane_1_TVALID,
+        lane_1_TREADY,
+        lane_2_TLAST,
+        lane_2_TVALID,
+        lane_2_TREADY,
+        lane_3_TLAST,
+        lane_3_TVALID,
+        lane_3_TREADY,
+        lane_4_TLAST,
+        lane_4_TVALID,
+        lane_4_TREADY,
+        lane_5_TLAST,
+        lane_5_TVALID,
+        lane_5_TREADY,
+        lane_6_TLAST,
+        lane_6_TVALID,
+        lane_6_TREADY,
+        lane_7_TLAST,
+        lane_7_TVALID,
+        lane_7_TREADY,
+        lane_8_TLAST,
+        lane_8_TVALID,
+        lane_8_TREADY,
+        lane_9_TLAST,
+        lane_9_TVALID,
+        lane_9_TREADY,
+        lane_10_TLAST,
+        lane_10_TVALID,
+        lane_10_TREADY,
+        lane_11_TLAST,
+        lane_11_TVALID,
+        lane_11_TREADY,
+        lane_12_TLAST,
+        lane_12_TVALID,
+        lane_12_TREADY,
+        lane_13_TLAST,
+        lane_13_TVALID,
+        lane_13_TREADY,
+        lane_14_TLAST,
+        lane_14_TVALID,
+        lane_14_TREADY,
+        lane_15_TLAST,
+        lane_15_TVALID,
+        lane_15_TREADY,
         p_read,
         p_read1,
         p_read2,
@@ -138,6 +186,54 @@ output  [31:0] lane_data_14_TDATA;
 output   lane_data_14_TVALID;
 output  [31:0] lane_data_15_TDATA;
 output   lane_data_15_TVALID;
+output  [0:0] lane_0_TLAST;
+output   lane_0_TVALID;
+input   lane_0_TREADY;
+output  [0:0] lane_1_TLAST;
+output   lane_1_TVALID;
+input   lane_1_TREADY;
+output  [0:0] lane_2_TLAST;
+output   lane_2_TVALID;
+input   lane_2_TREADY;
+output  [0:0] lane_3_TLAST;
+output   lane_3_TVALID;
+input   lane_3_TREADY;
+output  [0:0] lane_4_TLAST;
+output   lane_4_TVALID;
+input   lane_4_TREADY;
+output  [0:0] lane_5_TLAST;
+output   lane_5_TVALID;
+input   lane_5_TREADY;
+output  [0:0] lane_6_TLAST;
+output   lane_6_TVALID;
+input   lane_6_TREADY;
+output  [0:0] lane_7_TLAST;
+output   lane_7_TVALID;
+input   lane_7_TREADY;
+output  [0:0] lane_8_TLAST;
+output   lane_8_TVALID;
+input   lane_8_TREADY;
+output  [0:0] lane_9_TLAST;
+output   lane_9_TVALID;
+input   lane_9_TREADY;
+output  [0:0] lane_10_TLAST;
+output   lane_10_TVALID;
+input   lane_10_TREADY;
+output  [0:0] lane_11_TLAST;
+output   lane_11_TVALID;
+input   lane_11_TREADY;
+output  [0:0] lane_12_TLAST;
+output   lane_12_TVALID;
+input   lane_12_TREADY;
+output  [0:0] lane_13_TLAST;
+output   lane_13_TVALID;
+input   lane_13_TREADY;
+output  [0:0] lane_14_TLAST;
+output   lane_14_TVALID;
+input   lane_14_TREADY;
+output  [0:0] lane_15_TLAST;
+output   lane_15_TVALID;
+input   lane_15_TREADY;
 input  [15:0] p_read;
 input  [15:0] p_read1;
 input  [15:0] p_read2;
@@ -186,7 +282,7 @@ wire    regslice_forward_lane_data_15_U_apdone_blk;
 reg    ap_block_state2_pp0_stage0_iter1;
 reg    ap_block_state2_io;
 reg    ap_block_pp0_stage0_11001;
-reg   [0:0] cycle_V;
+reg   [7:0] cycle_V;
 reg   [15:0] even_lane_z1_M_real;
 reg   [15:0] even_lane_z1_M_imag;
 reg   [15:0] even_lane_z1_M_real_1;
@@ -316,41 +412,44 @@ reg    lane_data_12_TDATA_blk_n;
 reg    lane_data_13_TDATA_blk_n;
 reg    lane_data_14_TDATA_blk_n;
 reg    lane_data_15_TDATA_blk_n;
+wire   [0:0] icmp_ln879_fu_611_p2;
 reg    ap_block_pp0_stage0_subdone;
-wire   [0:0] xor_ln114_fu_464_p2;
-wire   [15:0] select_ln18_fu_490_p3;
-wire   [15:0] select_ln18_1_fu_498_p3;
-wire   [15:0] select_ln18_4_fu_600_p3;
-wire   [15:0] select_ln18_5_fu_608_p3;
-wire   [15:0] select_ln18_8_fu_710_p3;
-wire   [15:0] select_ln18_9_fu_718_p3;
-wire   [15:0] select_ln18_12_fu_820_p3;
-wire   [15:0] select_ln18_13_fu_828_p3;
-wire   [15:0] select_ln18_16_fu_930_p3;
-wire   [15:0] select_ln18_17_fu_938_p3;
-wire   [15:0] select_ln18_20_fu_1040_p3;
-wire   [15:0] select_ln18_21_fu_1048_p3;
-wire   [15:0] select_ln18_24_fu_1150_p3;
-wire   [15:0] select_ln18_25_fu_1158_p3;
-wire   [15:0] select_ln18_28_fu_1260_p3;
-wire   [15:0] select_ln18_29_fu_1268_p3;
+wire   [7:0] add_ln700_fu_1460_p2;
+wire   [15:0] select_ln18_fu_578_p3;
+wire   [15:0] select_ln18_1_fu_586_p3;
+wire   [15:0] select_ln18_4_fu_710_p3;
+wire   [15:0] select_ln18_5_fu_718_p3;
+wire   [15:0] select_ln18_8_fu_820_p3;
+wire   [15:0] select_ln18_9_fu_828_p3;
+wire   [15:0] select_ln18_12_fu_930_p3;
+wire   [15:0] select_ln18_13_fu_938_p3;
+wire   [15:0] select_ln18_16_fu_1040_p3;
+wire   [15:0] select_ln18_17_fu_1048_p3;
+wire   [15:0] select_ln18_20_fu_1150_p3;
+wire   [15:0] select_ln18_21_fu_1158_p3;
+wire   [15:0] select_ln18_24_fu_1260_p3;
+wire   [15:0] select_ln18_25_fu_1268_p3;
+wire   [15:0] select_ln18_28_fu_1370_p3;
+wire   [15:0] select_ln18_29_fu_1378_p3;
 reg    ap_block_pp0_stage0_01001;
-wire   [15:0] select_ln18_3_fu_563_p3;
-wire   [15:0] select_ln18_2_fu_555_p3;
-wire   [15:0] select_ln18_7_fu_673_p3;
-wire   [15:0] select_ln18_6_fu_665_p3;
-wire   [15:0] select_ln18_11_fu_783_p3;
-wire   [15:0] select_ln18_10_fu_775_p3;
-wire   [15:0] select_ln18_15_fu_893_p3;
-wire   [15:0] select_ln18_14_fu_885_p3;
-wire   [15:0] select_ln18_19_fu_1003_p3;
-wire   [15:0] select_ln18_18_fu_995_p3;
-wire   [15:0] select_ln18_23_fu_1113_p3;
-wire   [15:0] select_ln18_22_fu_1105_p3;
-wire   [15:0] select_ln18_27_fu_1223_p3;
-wire   [15:0] select_ln18_26_fu_1215_p3;
-wire   [15:0] select_ln18_31_fu_1333_p3;
-wire   [15:0] select_ln18_30_fu_1325_p3;
+wire   [0:0] xor_ln114_fu_552_p2;
+wire   [0:0] trunc_ln791_fu_548_p1;
+wire   [15:0] select_ln18_3_fu_673_p3;
+wire   [15:0] select_ln18_2_fu_665_p3;
+wire   [15:0] select_ln18_7_fu_783_p3;
+wire   [15:0] select_ln18_6_fu_775_p3;
+wire   [15:0] select_ln18_11_fu_893_p3;
+wire   [15:0] select_ln18_10_fu_885_p3;
+wire   [15:0] select_ln18_15_fu_1003_p3;
+wire   [15:0] select_ln18_14_fu_995_p3;
+wire   [15:0] select_ln18_19_fu_1113_p3;
+wire   [15:0] select_ln18_18_fu_1105_p3;
+wire   [15:0] select_ln18_23_fu_1223_p3;
+wire   [15:0] select_ln18_22_fu_1215_p3;
+wire   [15:0] select_ln18_27_fu_1333_p3;
+wire   [15:0] select_ln18_26_fu_1325_p3;
+wire   [15:0] select_ln18_31_fu_1443_p3;
+wire   [15:0] select_ln18_30_fu_1435_p3;
 reg   [0:0] ap_NS_fsm;
 reg    ap_idle_pp0_0to0;
 reg    ap_reset_idle_pp0;
@@ -419,13 +518,77 @@ wire   [31:0] lane_data_15_TDATA_int;
 reg    lane_data_15_TVALID_int;
 wire    lane_data_15_TREADY_int;
 wire    regslice_forward_lane_data_15_U_vld_out;
+wire    regslice_forward_lane_0_last_V_U_apdone_blk;
+reg    lane_0_TVALID_int;
+wire    lane_0_TREADY_int;
+wire    regslice_forward_lane_0_last_V_U_vld_out;
+wire    regslice_forward_lane_1_last_V_U_apdone_blk;
+reg    lane_1_TVALID_int;
+wire    lane_1_TREADY_int;
+wire    regslice_forward_lane_1_last_V_U_vld_out;
+wire    regslice_forward_lane_2_last_V_U_apdone_blk;
+reg    lane_2_TVALID_int;
+wire    lane_2_TREADY_int;
+wire    regslice_forward_lane_2_last_V_U_vld_out;
+wire    regslice_forward_lane_3_last_V_U_apdone_blk;
+reg    lane_3_TVALID_int;
+wire    lane_3_TREADY_int;
+wire    regslice_forward_lane_3_last_V_U_vld_out;
+wire    regslice_forward_lane_4_last_V_U_apdone_blk;
+reg    lane_4_TVALID_int;
+wire    lane_4_TREADY_int;
+wire    regslice_forward_lane_4_last_V_U_vld_out;
+wire    regslice_forward_lane_5_last_V_U_apdone_blk;
+reg    lane_5_TVALID_int;
+wire    lane_5_TREADY_int;
+wire    regslice_forward_lane_5_last_V_U_vld_out;
+wire    regslice_forward_lane_6_last_V_U_apdone_blk;
+reg    lane_6_TVALID_int;
+wire    lane_6_TREADY_int;
+wire    regslice_forward_lane_6_last_V_U_vld_out;
+wire    regslice_forward_lane_7_last_V_U_apdone_blk;
+reg    lane_7_TVALID_int;
+wire    lane_7_TREADY_int;
+wire    regslice_forward_lane_7_last_V_U_vld_out;
+wire    regslice_forward_lane_8_last_V_U_apdone_blk;
+reg    lane_8_TVALID_int;
+wire    lane_8_TREADY_int;
+wire    regslice_forward_lane_8_last_V_U_vld_out;
+wire    regslice_forward_lane_9_last_V_U_apdone_blk;
+reg    lane_9_TVALID_int;
+wire    lane_9_TREADY_int;
+wire    regslice_forward_lane_9_last_V_U_vld_out;
+wire    regslice_forward_lane_10_last_V_U_apdone_blk;
+reg    lane_10_TVALID_int;
+wire    lane_10_TREADY_int;
+wire    regslice_forward_lane_10_last_V_U_vld_out;
+wire    regslice_forward_lane_11_last_V_U_apdone_blk;
+reg    lane_11_TVALID_int;
+wire    lane_11_TREADY_int;
+wire    regslice_forward_lane_11_last_V_U_vld_out;
+wire    regslice_forward_lane_12_last_V_U_apdone_blk;
+reg    lane_12_TVALID_int;
+wire    lane_12_TREADY_int;
+wire    regslice_forward_lane_12_last_V_U_vld_out;
+wire    regslice_forward_lane_13_last_V_U_apdone_blk;
+reg    lane_13_TVALID_int;
+wire    lane_13_TREADY_int;
+wire    regslice_forward_lane_13_last_V_U_vld_out;
+wire    regslice_forward_lane_14_last_V_U_apdone_blk;
+reg    lane_14_TVALID_int;
+wire    lane_14_TREADY_int;
+wire    regslice_forward_lane_14_last_V_U_vld_out;
+wire    regslice_forward_lane_15_last_V_U_apdone_blk;
+reg    lane_15_TVALID_int;
+wire    lane_15_TREADY_int;
+wire    regslice_forward_lane_15_last_V_U_vld_out;
 
 // power-on initialization
 initial begin
 #0 ap_done_reg = 1'b0;
 #0 ap_CS_fsm = 1'd1;
 #0 ap_enable_reg_pp0_iter1 = 1'b0;
-#0 cycle_V = 1'd0;
+#0 cycle_V = 8'd0;
 #0 even_lane_z1_M_real = 16'd0;
 #0 even_lane_z1_M_imag = 16'd0;
 #0 even_lane_z1_M_real_1 = 16'd0;
@@ -1116,6 +1279,230 @@ regslice_forward_lane_data_15_U(
     .apdone_blk(regslice_forward_lane_data_15_U_apdone_blk)
 );
 
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_0_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_0_TVALID_int),
+    .ack_in(lane_0_TREADY_int),
+    .data_out(lane_0_TLAST),
+    .vld_out(regslice_forward_lane_0_last_V_U_vld_out),
+    .ack_out(lane_0_TREADY),
+    .apdone_blk(regslice_forward_lane_0_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_1_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_1_TVALID_int),
+    .ack_in(lane_1_TREADY_int),
+    .data_out(lane_1_TLAST),
+    .vld_out(regslice_forward_lane_1_last_V_U_vld_out),
+    .ack_out(lane_1_TREADY),
+    .apdone_blk(regslice_forward_lane_1_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_2_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_2_TVALID_int),
+    .ack_in(lane_2_TREADY_int),
+    .data_out(lane_2_TLAST),
+    .vld_out(regslice_forward_lane_2_last_V_U_vld_out),
+    .ack_out(lane_2_TREADY),
+    .apdone_blk(regslice_forward_lane_2_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_3_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_3_TVALID_int),
+    .ack_in(lane_3_TREADY_int),
+    .data_out(lane_3_TLAST),
+    .vld_out(regslice_forward_lane_3_last_V_U_vld_out),
+    .ack_out(lane_3_TREADY),
+    .apdone_blk(regslice_forward_lane_3_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_4_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_4_TVALID_int),
+    .ack_in(lane_4_TREADY_int),
+    .data_out(lane_4_TLAST),
+    .vld_out(regslice_forward_lane_4_last_V_U_vld_out),
+    .ack_out(lane_4_TREADY),
+    .apdone_blk(regslice_forward_lane_4_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_5_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_5_TVALID_int),
+    .ack_in(lane_5_TREADY_int),
+    .data_out(lane_5_TLAST),
+    .vld_out(regslice_forward_lane_5_last_V_U_vld_out),
+    .ack_out(lane_5_TREADY),
+    .apdone_blk(regslice_forward_lane_5_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_6_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_6_TVALID_int),
+    .ack_in(lane_6_TREADY_int),
+    .data_out(lane_6_TLAST),
+    .vld_out(regslice_forward_lane_6_last_V_U_vld_out),
+    .ack_out(lane_6_TREADY),
+    .apdone_blk(regslice_forward_lane_6_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_7_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_7_TVALID_int),
+    .ack_in(lane_7_TREADY_int),
+    .data_out(lane_7_TLAST),
+    .vld_out(regslice_forward_lane_7_last_V_U_vld_out),
+    .ack_out(lane_7_TREADY),
+    .apdone_blk(regslice_forward_lane_7_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_8_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_8_TVALID_int),
+    .ack_in(lane_8_TREADY_int),
+    .data_out(lane_8_TLAST),
+    .vld_out(regslice_forward_lane_8_last_V_U_vld_out),
+    .ack_out(lane_8_TREADY),
+    .apdone_blk(regslice_forward_lane_8_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_9_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_9_TVALID_int),
+    .ack_in(lane_9_TREADY_int),
+    .data_out(lane_9_TLAST),
+    .vld_out(regslice_forward_lane_9_last_V_U_vld_out),
+    .ack_out(lane_9_TREADY),
+    .apdone_blk(regslice_forward_lane_9_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_10_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_10_TVALID_int),
+    .ack_in(lane_10_TREADY_int),
+    .data_out(lane_10_TLAST),
+    .vld_out(regslice_forward_lane_10_last_V_U_vld_out),
+    .ack_out(lane_10_TREADY),
+    .apdone_blk(regslice_forward_lane_10_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_11_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_11_TVALID_int),
+    .ack_in(lane_11_TREADY_int),
+    .data_out(lane_11_TLAST),
+    .vld_out(regslice_forward_lane_11_last_V_U_vld_out),
+    .ack_out(lane_11_TREADY),
+    .apdone_blk(regslice_forward_lane_11_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_12_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_12_TVALID_int),
+    .ack_in(lane_12_TREADY_int),
+    .data_out(lane_12_TLAST),
+    .vld_out(regslice_forward_lane_12_last_V_U_vld_out),
+    .ack_out(lane_12_TREADY),
+    .apdone_blk(regslice_forward_lane_12_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_13_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_13_TVALID_int),
+    .ack_in(lane_13_TREADY_int),
+    .data_out(lane_13_TLAST),
+    .vld_out(regslice_forward_lane_13_last_V_U_vld_out),
+    .ack_out(lane_13_TREADY),
+    .apdone_blk(regslice_forward_lane_13_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_14_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_14_TVALID_int),
+    .ack_in(lane_14_TREADY_int),
+    .data_out(lane_14_TLAST),
+    .vld_out(regslice_forward_lane_14_last_V_U_vld_out),
+    .ack_out(lane_14_TREADY),
+    .apdone_blk(regslice_forward_lane_14_last_V_U_apdone_blk)
+);
+
+regslice_forward #(
+    .DataWidth( 1 ))
+regslice_forward_lane_15_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(icmp_ln879_fu_611_p2),
+    .vld_in(lane_15_TVALID_int),
+    .ack_in(lane_15_TREADY_int),
+    .data_out(lane_15_TLAST),
+    .vld_out(regslice_forward_lane_15_last_V_U_vld_out),
+    .ack_out(lane_15_TREADY),
+    .apdone_blk(regslice_forward_lane_15_last_V_U_apdone_blk)
+);
+
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
         ap_CS_fsm <= ap_ST_fsm_pp0_stage0;
@@ -1148,23 +1535,23 @@ end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        cycle_V <= xor_ln114_fu_464_p2;
-        even_lane_z1_M_imag <= select_ln18_1_fu_498_p3;
-        even_lane_z1_M_imag_1 <= select_ln18_5_fu_608_p3;
-        even_lane_z1_M_imag_2 <= select_ln18_9_fu_718_p3;
-        even_lane_z1_M_imag_3 <= select_ln18_13_fu_828_p3;
-        even_lane_z1_M_imag_4 <= select_ln18_17_fu_938_p3;
-        even_lane_z1_M_imag_5 <= select_ln18_21_fu_1048_p3;
-        even_lane_z1_M_imag_6 <= select_ln18_25_fu_1158_p3;
-        even_lane_z1_M_imag_7 <= select_ln18_29_fu_1268_p3;
-        even_lane_z1_M_real <= select_ln18_fu_490_p3;
-        even_lane_z1_M_real_1 <= select_ln18_4_fu_600_p3;
-        even_lane_z1_M_real_2 <= select_ln18_8_fu_710_p3;
-        even_lane_z1_M_real_3 <= select_ln18_12_fu_820_p3;
-        even_lane_z1_M_real_4 <= select_ln18_16_fu_930_p3;
-        even_lane_z1_M_real_5 <= select_ln18_20_fu_1040_p3;
-        even_lane_z1_M_real_6 <= select_ln18_24_fu_1150_p3;
-        even_lane_z1_M_real_7 <= select_ln18_28_fu_1260_p3;
+        cycle_V <= add_ln700_fu_1460_p2;
+        even_lane_z1_M_imag <= select_ln18_1_fu_586_p3;
+        even_lane_z1_M_imag_1 <= select_ln18_5_fu_718_p3;
+        even_lane_z1_M_imag_2 <= select_ln18_9_fu_828_p3;
+        even_lane_z1_M_imag_3 <= select_ln18_13_fu_938_p3;
+        even_lane_z1_M_imag_4 <= select_ln18_17_fu_1048_p3;
+        even_lane_z1_M_imag_5 <= select_ln18_21_fu_1158_p3;
+        even_lane_z1_M_imag_6 <= select_ln18_25_fu_1268_p3;
+        even_lane_z1_M_imag_7 <= select_ln18_29_fu_1378_p3;
+        even_lane_z1_M_real <= select_ln18_fu_578_p3;
+        even_lane_z1_M_real_1 <= select_ln18_4_fu_710_p3;
+        even_lane_z1_M_real_2 <= select_ln18_8_fu_820_p3;
+        even_lane_z1_M_real_3 <= select_ln18_12_fu_930_p3;
+        even_lane_z1_M_real_4 <= select_ln18_16_fu_1040_p3;
+        even_lane_z1_M_real_5 <= select_ln18_20_fu_1150_p3;
+        even_lane_z1_M_real_6 <= select_ln18_24_fu_1260_p3;
+        even_lane_z1_M_real_7 <= select_ln18_28_fu_1370_p3;
     end
 end
 
@@ -1218,7 +1605,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_10_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_10_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_10_ce0 = 1'b0;
     end
@@ -1226,7 +1613,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_10_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_10_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_10_we0 = 1'b0;
     end
@@ -1234,7 +1621,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_11_ce0 = cycle_V;
+        delays_Array_M_imag_11_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_11_ce0 = 1'b0;
     end
@@ -1242,7 +1629,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_11_we0 = cycle_V;
+        delays_Array_M_imag_11_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_11_we0 = 1'b0;
     end
@@ -1250,7 +1637,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_12_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_12_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_12_ce0 = 1'b0;
     end
@@ -1258,7 +1645,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_12_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_12_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_12_we0 = 1'b0;
     end
@@ -1266,7 +1653,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_13_ce0 = cycle_V;
+        delays_Array_M_imag_13_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_13_ce0 = 1'b0;
     end
@@ -1274,7 +1661,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_13_we0 = cycle_V;
+        delays_Array_M_imag_13_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_13_we0 = 1'b0;
     end
@@ -1282,7 +1669,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_14_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_14_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_14_ce0 = 1'b0;
     end
@@ -1290,7 +1677,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_14_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_14_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_14_we0 = 1'b0;
     end
@@ -1298,7 +1685,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_15_ce0 = cycle_V;
+        delays_Array_M_imag_15_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_15_ce0 = 1'b0;
     end
@@ -1306,7 +1693,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_15_we0 = cycle_V;
+        delays_Array_M_imag_15_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_15_we0 = 1'b0;
     end
@@ -1314,7 +1701,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_1_ce0 = cycle_V;
+        delays_Array_M_imag_1_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_1_ce0 = 1'b0;
     end
@@ -1322,7 +1709,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_1_we0 = cycle_V;
+        delays_Array_M_imag_1_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_1_we0 = 1'b0;
     end
@@ -1330,7 +1717,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_2_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_2_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_2_ce0 = 1'b0;
     end
@@ -1338,7 +1725,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_2_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_2_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_2_we0 = 1'b0;
     end
@@ -1346,7 +1733,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_3_ce0 = cycle_V;
+        delays_Array_M_imag_3_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_3_ce0 = 1'b0;
     end
@@ -1354,7 +1741,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_3_we0 = cycle_V;
+        delays_Array_M_imag_3_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_3_we0 = 1'b0;
     end
@@ -1362,7 +1749,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_4_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_4_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_4_ce0 = 1'b0;
     end
@@ -1370,7 +1757,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_4_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_4_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_4_we0 = 1'b0;
     end
@@ -1378,7 +1765,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_5_ce0 = cycle_V;
+        delays_Array_M_imag_5_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_5_ce0 = 1'b0;
     end
@@ -1386,7 +1773,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_5_we0 = cycle_V;
+        delays_Array_M_imag_5_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_5_we0 = 1'b0;
     end
@@ -1394,7 +1781,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_6_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_6_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_6_ce0 = 1'b0;
     end
@@ -1402,7 +1789,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_6_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_6_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_6_we0 = 1'b0;
     end
@@ -1410,7 +1797,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_7_ce0 = cycle_V;
+        delays_Array_M_imag_7_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_7_ce0 = 1'b0;
     end
@@ -1418,7 +1805,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_7_we0 = cycle_V;
+        delays_Array_M_imag_7_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_7_we0 = 1'b0;
     end
@@ -1426,7 +1813,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_8_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_8_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_8_ce0 = 1'b0;
     end
@@ -1434,7 +1821,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_8_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_8_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_8_we0 = 1'b0;
     end
@@ -1442,7 +1829,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_9_ce0 = cycle_V;
+        delays_Array_M_imag_9_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_9_ce0 = 1'b0;
     end
@@ -1450,7 +1837,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_9_we0 = cycle_V;
+        delays_Array_M_imag_9_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_imag_9_we0 = 1'b0;
     end
@@ -1458,7 +1845,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_ce0 = 1'b0;
     end
@@ -1466,7 +1853,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_imag_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_imag_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_imag_we0 = 1'b0;
     end
@@ -1474,7 +1861,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_10_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_10_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_10_ce0 = 1'b0;
     end
@@ -1482,7 +1869,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_10_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_10_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_10_we0 = 1'b0;
     end
@@ -1490,7 +1877,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_11_ce0 = cycle_V;
+        delays_Array_M_real_11_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_11_ce0 = 1'b0;
     end
@@ -1498,7 +1885,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_11_we0 = cycle_V;
+        delays_Array_M_real_11_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_11_we0 = 1'b0;
     end
@@ -1506,7 +1893,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_12_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_12_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_12_ce0 = 1'b0;
     end
@@ -1514,7 +1901,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_12_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_12_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_12_we0 = 1'b0;
     end
@@ -1522,7 +1909,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_13_ce0 = cycle_V;
+        delays_Array_M_real_13_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_13_ce0 = 1'b0;
     end
@@ -1530,7 +1917,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_13_we0 = cycle_V;
+        delays_Array_M_real_13_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_13_we0 = 1'b0;
     end
@@ -1538,7 +1925,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_14_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_14_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_14_ce0 = 1'b0;
     end
@@ -1546,7 +1933,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_14_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_14_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_14_we0 = 1'b0;
     end
@@ -1554,7 +1941,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_15_ce0 = cycle_V;
+        delays_Array_M_real_15_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_15_ce0 = 1'b0;
     end
@@ -1562,7 +1949,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_15_we0 = cycle_V;
+        delays_Array_M_real_15_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_15_we0 = 1'b0;
     end
@@ -1570,7 +1957,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_1_ce0 = cycle_V;
+        delays_Array_M_real_1_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_1_ce0 = 1'b0;
     end
@@ -1578,7 +1965,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_1_we0 = cycle_V;
+        delays_Array_M_real_1_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_1_we0 = 1'b0;
     end
@@ -1586,7 +1973,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_2_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_2_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_2_ce0 = 1'b0;
     end
@@ -1594,7 +1981,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_2_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_2_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_2_we0 = 1'b0;
     end
@@ -1602,7 +1989,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_3_ce0 = cycle_V;
+        delays_Array_M_real_3_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_3_ce0 = 1'b0;
     end
@@ -1610,7 +1997,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_3_we0 = cycle_V;
+        delays_Array_M_real_3_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_3_we0 = 1'b0;
     end
@@ -1618,7 +2005,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_4_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_4_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_4_ce0 = 1'b0;
     end
@@ -1626,7 +2013,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_4_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_4_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_4_we0 = 1'b0;
     end
@@ -1634,7 +2021,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_5_ce0 = cycle_V;
+        delays_Array_M_real_5_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_5_ce0 = 1'b0;
     end
@@ -1642,7 +2029,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_5_we0 = cycle_V;
+        delays_Array_M_real_5_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_5_we0 = 1'b0;
     end
@@ -1650,7 +2037,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_6_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_6_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_6_ce0 = 1'b0;
     end
@@ -1658,7 +2045,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_6_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_6_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_6_we0 = 1'b0;
     end
@@ -1666,7 +2053,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_7_ce0 = cycle_V;
+        delays_Array_M_real_7_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_7_ce0 = 1'b0;
     end
@@ -1674,7 +2061,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_7_we0 = cycle_V;
+        delays_Array_M_real_7_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_7_we0 = 1'b0;
     end
@@ -1682,7 +2069,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_8_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_8_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_8_ce0 = 1'b0;
     end
@@ -1690,7 +2077,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_8_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_8_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_8_we0 = 1'b0;
     end
@@ -1698,7 +2085,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_9_ce0 = cycle_V;
+        delays_Array_M_real_9_ce0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_9_ce0 = 1'b0;
     end
@@ -1706,7 +2093,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_9_we0 = cycle_V;
+        delays_Array_M_real_9_we0 = trunc_ln791_fu_548_p1;
     end else begin
         delays_Array_M_real_9_we0 = 1'b0;
     end
@@ -1714,7 +2101,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_ce0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_ce0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_ce0 = 1'b0;
     end
@@ -1722,9 +2109,137 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        delays_Array_M_real_we0 = xor_ln114_fu_464_p2;
+        delays_Array_M_real_we0 = xor_ln114_fu_552_p2;
     end else begin
         delays_Array_M_real_we0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_0_TVALID_int = 1'b1;
+    end else begin
+        lane_0_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_10_TVALID_int = 1'b1;
+    end else begin
+        lane_10_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_11_TVALID_int = 1'b1;
+    end else begin
+        lane_11_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_12_TVALID_int = 1'b1;
+    end else begin
+        lane_12_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_13_TVALID_int = 1'b1;
+    end else begin
+        lane_13_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_14_TVALID_int = 1'b1;
+    end else begin
+        lane_14_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_15_TVALID_int = 1'b1;
+    end else begin
+        lane_15_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_1_TVALID_int = 1'b1;
+    end else begin
+        lane_1_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_2_TVALID_int = 1'b1;
+    end else begin
+        lane_2_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_3_TVALID_int = 1'b1;
+    end else begin
+        lane_3_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_4_TVALID_int = 1'b1;
+    end else begin
+        lane_4_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_5_TVALID_int = 1'b1;
+    end else begin
+        lane_5_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_6_TVALID_int = 1'b1;
+    end else begin
+        lane_6_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_7_TVALID_int = 1'b1;
+    end else begin
+        lane_7_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_8_TVALID_int = 1'b1;
+    end else begin
+        lane_8_TVALID_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        lane_9_TVALID_int = 1'b1;
+    end else begin
+        lane_9_TVALID_int = 1'b0;
     end
 end
 
@@ -1995,6 +2510,8 @@ always @ (*) begin
     endcase
 end
 
+assign add_ln700_fu_1460_p2 = (8'd1 + cycle_V);
+
 assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 
 assign ap_block_pp0_stage0 = ~(1'b1 == 1'b1);
@@ -2012,7 +2529,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_block_state1_io = ((lane_data_3_TREADY_int == 1'b0) | (lane_data_2_TREADY_int == 1'b0) | (lane_data_1_TREADY_int == 1'b0) | (lane_data_0_TREADY_int == 1'b0) | (lane_data_15_TREADY_int == 1'b0) | (lane_data_14_TREADY_int == 1'b0) | (lane_data_13_TREADY_int == 1'b0) | (lane_data_12_TREADY_int == 1'b0) | (lane_data_11_TREADY_int == 1'b0) | (lane_data_10_TREADY_int == 1'b0) | (lane_data_9_TREADY_int == 1'b0) | (lane_data_8_TREADY_int == 1'b0) | (lane_data_7_TREADY_int == 1'b0) | (lane_data_6_TREADY_int == 1'b0) | (lane_data_5_TREADY_int == 1'b0) | (lane_data_4_TREADY_int == 1'b0));
+    ap_block_state1_io = ((lane_data_15_TREADY_int == 1'b0) | (lane_data_14_TREADY_int == 1'b0) | (lane_data_13_TREADY_int == 1'b0) | (lane_data_12_TREADY_int == 1'b0) | (lane_data_11_TREADY_int == 1'b0) | (lane_data_10_TREADY_int == 1'b0) | (lane_data_9_TREADY_int == 1'b0) | (lane_data_8_TREADY_int == 1'b0) | (lane_data_7_TREADY_int == 1'b0) | (lane_data_6_TREADY_int == 1'b0) | (lane_data_5_TREADY_int == 1'b0) | (lane_data_4_TREADY_int == 1'b0) | (lane_data_3_TREADY_int == 1'b0) | (lane_data_2_TREADY_int == 1'b0) | (lane_data_1_TREADY_int == 1'b0) | (lane_data_0_TREADY_int == 1'b0));
 end
 
 always @ (*) begin
@@ -2020,7 +2537,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_block_state2_io = ((lane_data_3_TREADY_int == 1'b0) | (lane_data_2_TREADY_int == 1'b0) | (lane_data_1_TREADY_int == 1'b0) | (lane_data_0_TREADY_int == 1'b0) | (lane_data_15_TREADY_int == 1'b0) | (lane_data_14_TREADY_int == 1'b0) | (lane_data_13_TREADY_int == 1'b0) | (lane_data_12_TREADY_int == 1'b0) | (lane_data_11_TREADY_int == 1'b0) | (lane_data_10_TREADY_int == 1'b0) | (lane_data_9_TREADY_int == 1'b0) | (lane_data_8_TREADY_int == 1'b0) | (lane_data_7_TREADY_int == 1'b0) | (lane_data_6_TREADY_int == 1'b0) | (lane_data_5_TREADY_int == 1'b0) | (lane_data_4_TREADY_int == 1'b0));
+    ap_block_state2_io = ((lane_data_15_TREADY_int == 1'b0) | (lane_data_14_TREADY_int == 1'b0) | (lane_data_13_TREADY_int == 1'b0) | (lane_data_12_TREADY_int == 1'b0) | (lane_data_11_TREADY_int == 1'b0) | (lane_data_10_TREADY_int == 1'b0) | (lane_data_9_TREADY_int == 1'b0) | (lane_data_8_TREADY_int == 1'b0) | (lane_data_7_TREADY_int == 1'b0) | (lane_data_6_TREADY_int == 1'b0) | (lane_data_5_TREADY_int == 1'b0) | (lane_data_4_TREADY_int == 1'b0) | (lane_data_3_TREADY_int == 1'b0) | (lane_data_2_TREADY_int == 1'b0) | (lane_data_1_TREADY_int == 1'b0) | (lane_data_0_TREADY_int == 1'b0));
 end
 
 always @ (*) begin
@@ -2031,6 +2548,40 @@ assign ap_enable_pp0 = (ap_idle_pp0 ^ 1'b1);
 
 assign ap_enable_reg_pp0_iter0 = ap_start;
 
+assign icmp_ln879_fu_611_p2 = ((cycle_V == 8'd255) ? 1'b1 : 1'b0);
+
+assign lane_0_TVALID = regslice_forward_lane_0_last_V_U_vld_out;
+
+assign lane_10_TVALID = regslice_forward_lane_10_last_V_U_vld_out;
+
+assign lane_11_TVALID = regslice_forward_lane_11_last_V_U_vld_out;
+
+assign lane_12_TVALID = regslice_forward_lane_12_last_V_U_vld_out;
+
+assign lane_13_TVALID = regslice_forward_lane_13_last_V_U_vld_out;
+
+assign lane_14_TVALID = regslice_forward_lane_14_last_V_U_vld_out;
+
+assign lane_15_TVALID = regslice_forward_lane_15_last_V_U_vld_out;
+
+assign lane_1_TVALID = regslice_forward_lane_1_last_V_U_vld_out;
+
+assign lane_2_TVALID = regslice_forward_lane_2_last_V_U_vld_out;
+
+assign lane_3_TVALID = regslice_forward_lane_3_last_V_U_vld_out;
+
+assign lane_4_TVALID = regslice_forward_lane_4_last_V_U_vld_out;
+
+assign lane_5_TVALID = regslice_forward_lane_5_last_V_U_vld_out;
+
+assign lane_6_TVALID = regslice_forward_lane_6_last_V_U_vld_out;
+
+assign lane_7_TVALID = regslice_forward_lane_7_last_V_U_vld_out;
+
+assign lane_8_TVALID = regslice_forward_lane_8_last_V_U_vld_out;
+
+assign lane_9_TVALID = regslice_forward_lane_9_last_V_U_vld_out;
+
 assign lane_data_0_TDATA_int = {{even_lane_z1_M_imag}, {even_lane_z1_M_real}};
 
 assign lane_data_0_TVALID = regslice_forward_lane_data_0_U_vld_out;
@@ -2039,7 +2590,7 @@ assign lane_data_10_TDATA_int = {{even_lane_z1_M_imag_5}, {even_lane_z1_M_real_5
 
 assign lane_data_10_TVALID = regslice_forward_lane_data_10_U_vld_out;
 
-assign lane_data_11_TDATA_int = {{select_ln18_23_fu_1113_p3}, {select_ln18_22_fu_1105_p3}};
+assign lane_data_11_TDATA_int = {{select_ln18_23_fu_1223_p3}, {select_ln18_22_fu_1215_p3}};
 
 assign lane_data_11_TVALID = regslice_forward_lane_data_11_U_vld_out;
 
@@ -2047,7 +2598,7 @@ assign lane_data_12_TDATA_int = {{even_lane_z1_M_imag_6}, {even_lane_z1_M_real_6
 
 assign lane_data_12_TVALID = regslice_forward_lane_data_12_U_vld_out;
 
-assign lane_data_13_TDATA_int = {{select_ln18_27_fu_1223_p3}, {select_ln18_26_fu_1215_p3}};
+assign lane_data_13_TDATA_int = {{select_ln18_27_fu_1333_p3}, {select_ln18_26_fu_1325_p3}};
 
 assign lane_data_13_TVALID = regslice_forward_lane_data_13_U_vld_out;
 
@@ -2055,11 +2606,11 @@ assign lane_data_14_TDATA_int = {{even_lane_z1_M_imag_7}, {even_lane_z1_M_real_7
 
 assign lane_data_14_TVALID = regslice_forward_lane_data_14_U_vld_out;
 
-assign lane_data_15_TDATA_int = {{select_ln18_31_fu_1333_p3}, {select_ln18_30_fu_1325_p3}};
+assign lane_data_15_TDATA_int = {{select_ln18_31_fu_1443_p3}, {select_ln18_30_fu_1435_p3}};
 
 assign lane_data_15_TVALID = regslice_forward_lane_data_15_U_vld_out;
 
-assign lane_data_1_TDATA_int = {{select_ln18_3_fu_563_p3}, {select_ln18_2_fu_555_p3}};
+assign lane_data_1_TDATA_int = {{select_ln18_3_fu_673_p3}, {select_ln18_2_fu_665_p3}};
 
 assign lane_data_1_TVALID = regslice_forward_lane_data_1_U_vld_out;
 
@@ -2067,7 +2618,7 @@ assign lane_data_2_TDATA_int = {{even_lane_z1_M_imag_1}, {even_lane_z1_M_real_1}
 
 assign lane_data_2_TVALID = regslice_forward_lane_data_2_U_vld_out;
 
-assign lane_data_3_TDATA_int = {{select_ln18_7_fu_673_p3}, {select_ln18_6_fu_665_p3}};
+assign lane_data_3_TDATA_int = {{select_ln18_7_fu_783_p3}, {select_ln18_6_fu_775_p3}};
 
 assign lane_data_3_TVALID = regslice_forward_lane_data_3_U_vld_out;
 
@@ -2075,7 +2626,7 @@ assign lane_data_4_TDATA_int = {{even_lane_z1_M_imag_2}, {even_lane_z1_M_real_2}
 
 assign lane_data_4_TVALID = regslice_forward_lane_data_4_U_vld_out;
 
-assign lane_data_5_TDATA_int = {{select_ln18_11_fu_783_p3}, {select_ln18_10_fu_775_p3}};
+assign lane_data_5_TDATA_int = {{select_ln18_11_fu_893_p3}, {select_ln18_10_fu_885_p3}};
 
 assign lane_data_5_TVALID = regslice_forward_lane_data_5_U_vld_out;
 
@@ -2083,7 +2634,7 @@ assign lane_data_6_TDATA_int = {{even_lane_z1_M_imag_3}, {even_lane_z1_M_real_3}
 
 assign lane_data_6_TVALID = regslice_forward_lane_data_6_U_vld_out;
 
-assign lane_data_7_TDATA_int = {{select_ln18_15_fu_893_p3}, {select_ln18_14_fu_885_p3}};
+assign lane_data_7_TDATA_int = {{select_ln18_15_fu_1003_p3}, {select_ln18_14_fu_995_p3}};
 
 assign lane_data_7_TVALID = regslice_forward_lane_data_7_U_vld_out;
 
@@ -2091,74 +2642,76 @@ assign lane_data_8_TDATA_int = {{even_lane_z1_M_imag_4}, {even_lane_z1_M_real_4}
 
 assign lane_data_8_TVALID = regslice_forward_lane_data_8_U_vld_out;
 
-assign lane_data_9_TDATA_int = {{select_ln18_19_fu_1003_p3}, {select_ln18_18_fu_995_p3}};
+assign lane_data_9_TDATA_int = {{select_ln18_19_fu_1113_p3}, {select_ln18_18_fu_1105_p3}};
 
 assign lane_data_9_TVALID = regslice_forward_lane_data_9_U_vld_out;
 
-assign select_ln18_10_fu_775_p3 = ((cycle_V[0:0] === 1'b1) ? p_read10 : delays_Array_M_real_5_q0);
+assign select_ln18_10_fu_885_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read10 : delays_Array_M_real_5_q0);
 
-assign select_ln18_11_fu_783_p3 = ((cycle_V[0:0] === 1'b1) ? p_read2 : delays_Array_M_imag_5_q0);
+assign select_ln18_11_fu_893_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read2 : delays_Array_M_imag_5_q0);
 
-assign select_ln18_12_fu_820_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_real_6_q0 : p_read11);
+assign select_ln18_12_fu_930_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_real_6_q0 : p_read11);
 
-assign select_ln18_13_fu_828_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_imag_6_q0 : p_read3);
+assign select_ln18_13_fu_938_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_imag_6_q0 : p_read3);
 
-assign select_ln18_14_fu_885_p3 = ((cycle_V[0:0] === 1'b1) ? p_read11 : delays_Array_M_real_7_q0);
+assign select_ln18_14_fu_995_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read11 : delays_Array_M_real_7_q0);
 
-assign select_ln18_15_fu_893_p3 = ((cycle_V[0:0] === 1'b1) ? p_read3 : delays_Array_M_imag_7_q0);
+assign select_ln18_15_fu_1003_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read3 : delays_Array_M_imag_7_q0);
 
-assign select_ln18_16_fu_930_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_real_8_q0 : p_read12);
+assign select_ln18_16_fu_1040_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_real_8_q0 : p_read12);
 
-assign select_ln18_17_fu_938_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_imag_8_q0 : p_read4);
+assign select_ln18_17_fu_1048_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_imag_8_q0 : p_read4);
 
-assign select_ln18_18_fu_995_p3 = ((cycle_V[0:0] === 1'b1) ? p_read12 : delays_Array_M_real_9_q0);
+assign select_ln18_18_fu_1105_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read12 : delays_Array_M_real_9_q0);
 
-assign select_ln18_19_fu_1003_p3 = ((cycle_V[0:0] === 1'b1) ? p_read4 : delays_Array_M_imag_9_q0);
+assign select_ln18_19_fu_1113_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read4 : delays_Array_M_imag_9_q0);
 
-assign select_ln18_1_fu_498_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_imag_q0 : p_read);
+assign select_ln18_1_fu_586_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_imag_q0 : p_read);
 
-assign select_ln18_20_fu_1040_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_real_10_q0 : p_read13);
+assign select_ln18_20_fu_1150_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_real_10_q0 : p_read13);
 
-assign select_ln18_21_fu_1048_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_imag_10_q0 : p_read5);
+assign select_ln18_21_fu_1158_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_imag_10_q0 : p_read5);
 
-assign select_ln18_22_fu_1105_p3 = ((cycle_V[0:0] === 1'b1) ? p_read13 : delays_Array_M_real_11_q0);
+assign select_ln18_22_fu_1215_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read13 : delays_Array_M_real_11_q0);
 
-assign select_ln18_23_fu_1113_p3 = ((cycle_V[0:0] === 1'b1) ? p_read5 : delays_Array_M_imag_11_q0);
+assign select_ln18_23_fu_1223_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read5 : delays_Array_M_imag_11_q0);
 
-assign select_ln18_24_fu_1150_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_real_12_q0 : p_read14);
+assign select_ln18_24_fu_1260_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_real_12_q0 : p_read14);
 
-assign select_ln18_25_fu_1158_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_imag_12_q0 : p_read6);
+assign select_ln18_25_fu_1268_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_imag_12_q0 : p_read6);
 
-assign select_ln18_26_fu_1215_p3 = ((cycle_V[0:0] === 1'b1) ? p_read14 : delays_Array_M_real_13_q0);
+assign select_ln18_26_fu_1325_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read14 : delays_Array_M_real_13_q0);
 
-assign select_ln18_27_fu_1223_p3 = ((cycle_V[0:0] === 1'b1) ? p_read6 : delays_Array_M_imag_13_q0);
+assign select_ln18_27_fu_1333_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read6 : delays_Array_M_imag_13_q0);
 
-assign select_ln18_28_fu_1260_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_real_14_q0 : p_read15);
+assign select_ln18_28_fu_1370_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_real_14_q0 : p_read15);
 
-assign select_ln18_29_fu_1268_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_imag_14_q0 : p_read7);
+assign select_ln18_29_fu_1378_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_imag_14_q0 : p_read7);
 
-assign select_ln18_2_fu_555_p3 = ((cycle_V[0:0] === 1'b1) ? p_read8 : delays_Array_M_real_1_q0);
+assign select_ln18_2_fu_665_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read8 : delays_Array_M_real_1_q0);
 
-assign select_ln18_30_fu_1325_p3 = ((cycle_V[0:0] === 1'b1) ? p_read15 : delays_Array_M_real_15_q0);
+assign select_ln18_30_fu_1435_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read15 : delays_Array_M_real_15_q0);
 
-assign select_ln18_31_fu_1333_p3 = ((cycle_V[0:0] === 1'b1) ? p_read7 : delays_Array_M_imag_15_q0);
+assign select_ln18_31_fu_1443_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read7 : delays_Array_M_imag_15_q0);
 
-assign select_ln18_3_fu_563_p3 = ((cycle_V[0:0] === 1'b1) ? p_read : delays_Array_M_imag_1_q0);
+assign select_ln18_3_fu_673_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read : delays_Array_M_imag_1_q0);
 
-assign select_ln18_4_fu_600_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_real_2_q0 : p_read9);
+assign select_ln18_4_fu_710_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_real_2_q0 : p_read9);
 
-assign select_ln18_5_fu_608_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_imag_2_q0 : p_read1);
+assign select_ln18_5_fu_718_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_imag_2_q0 : p_read1);
 
-assign select_ln18_6_fu_665_p3 = ((cycle_V[0:0] === 1'b1) ? p_read9 : delays_Array_M_real_3_q0);
+assign select_ln18_6_fu_775_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read9 : delays_Array_M_real_3_q0);
 
-assign select_ln18_7_fu_673_p3 = ((cycle_V[0:0] === 1'b1) ? p_read1 : delays_Array_M_imag_3_q0);
+assign select_ln18_7_fu_783_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? p_read1 : delays_Array_M_imag_3_q0);
 
-assign select_ln18_8_fu_710_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_real_4_q0 : p_read10);
+assign select_ln18_8_fu_820_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_real_4_q0 : p_read10);
 
-assign select_ln18_9_fu_718_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_imag_4_q0 : p_read2);
+assign select_ln18_9_fu_828_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_imag_4_q0 : p_read2);
 
-assign select_ln18_fu_490_p3 = ((cycle_V[0:0] === 1'b1) ? delays_Array_M_real_q0 : p_read8);
+assign select_ln18_fu_578_p3 = ((trunc_ln791_fu_548_p1[0:0] === 1'b1) ? delays_Array_M_real_q0 : p_read8);
 
-assign xor_ln114_fu_464_p2 = (cycle_V ^ 1'd1);
+assign trunc_ln791_fu_548_p1 = cycle_V[0:0];
+
+assign xor_ln114_fu_552_p2 = (trunc_ln791_fu_548_p1 ^ 1'd1);
 
 endmodule //process_lanes

@@ -29,6 +29,22 @@ port (
     lane_data_13_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
     lane_data_14_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
     lane_data_15_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
+    lane_0_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_1_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_2_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_3_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_4_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_5_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_6_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_7_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_8_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_9_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_10_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_11_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_12_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_13_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_14_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    lane_15_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
     ap_clk : IN STD_LOGIC;
     ap_rst_n : IN STD_LOGIC;
     istream_data_TVALID : IN STD_LOGIC;
@@ -66,15 +82,48 @@ port (
     lane_data_14_TVALID : OUT STD_LOGIC;
     lane_data_14_TREADY : IN STD_LOGIC;
     lane_data_15_TVALID : OUT STD_LOGIC;
-    lane_data_15_TREADY : IN STD_LOGIC );
+    lane_data_15_TREADY : IN STD_LOGIC;
+    lane_0_TVALID : OUT STD_LOGIC;
+    lane_0_TREADY : IN STD_LOGIC;
+    lane_1_TVALID : OUT STD_LOGIC;
+    lane_1_TREADY : IN STD_LOGIC;
+    lane_2_TVALID : OUT STD_LOGIC;
+    lane_2_TREADY : IN STD_LOGIC;
+    lane_3_TVALID : OUT STD_LOGIC;
+    lane_3_TREADY : IN STD_LOGIC;
+    lane_4_TVALID : OUT STD_LOGIC;
+    lane_4_TREADY : IN STD_LOGIC;
+    lane_5_TVALID : OUT STD_LOGIC;
+    lane_5_TREADY : IN STD_LOGIC;
+    lane_6_TVALID : OUT STD_LOGIC;
+    lane_6_TREADY : IN STD_LOGIC;
+    lane_7_TVALID : OUT STD_LOGIC;
+    lane_7_TREADY : IN STD_LOGIC;
+    lane_8_TVALID : OUT STD_LOGIC;
+    lane_8_TREADY : IN STD_LOGIC;
+    lane_9_TVALID : OUT STD_LOGIC;
+    lane_9_TREADY : IN STD_LOGIC;
+    lane_10_TVALID : OUT STD_LOGIC;
+    lane_10_TREADY : IN STD_LOGIC;
+    lane_11_TVALID : OUT STD_LOGIC;
+    lane_11_TREADY : IN STD_LOGIC;
+    lane_12_TVALID : OUT STD_LOGIC;
+    lane_12_TREADY : IN STD_LOGIC;
+    lane_13_TVALID : OUT STD_LOGIC;
+    lane_13_TREADY : IN STD_LOGIC;
+    lane_14_TVALID : OUT STD_LOGIC;
+    lane_14_TREADY : IN STD_LOGIC;
+    lane_15_TVALID : OUT STD_LOGIC;
+    lane_15_TREADY : IN STD_LOGIC );
 end;
 
 
 architecture behav of adc_to_opfb is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "adc_to_opfb,hls_ip_2019_2_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu28dr-ffvg1517-2-e,HLS_INPUT_CLOCK=1.818000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=1.361000,HLS_SYN_LAT=3,HLS_SYN_TPT=1,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=3016,HLS_SYN_LUT=6999,HLS_VERSION=2019_2_1}";
+    "adc_to_opfb,hls_ip_2019_2_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu28dr-ffvg1517-2-e,HLS_INPUT_CLOCK=1.818000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=1.361000,HLS_SYN_LAT=3,HLS_SYN_TPT=1,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=3023,HLS_SYN_LUT=7025,HLS_VERSION=2019_2_1}";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
+    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_const_boolean_1 : BOOLEAN := true;
@@ -289,6 +338,38 @@ architecture behav of adc_to_opfb is
     signal process_lanes_U0_lane_data_14_TVALID : STD_LOGIC;
     signal process_lanes_U0_lane_data_15_TDATA : STD_LOGIC_VECTOR (31 downto 0);
     signal process_lanes_U0_lane_data_15_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_0_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_0_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_1_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_1_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_2_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_2_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_3_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_3_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_4_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_4_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_5_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_5_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_6_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_6_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_7_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_7_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_8_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_8_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_9_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_9_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_10_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_10_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_11_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_11_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_12_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_12_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_13_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_13_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_14_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_14_TVALID : STD_LOGIC;
+    signal process_lanes_U0_lane_15_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal process_lanes_U0_lane_15_TVALID : STD_LOGIC;
     signal ap_sync_continue : STD_LOGIC;
     signal p_0_channel_dout : STD_LOGIC_VECTOR (15 downto 0);
     signal p_0_channel_empty_n : STD_LOGIC;
@@ -496,6 +577,54 @@ architecture behav of adc_to_opfb is
         lane_data_14_TVALID : OUT STD_LOGIC;
         lane_data_15_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
         lane_data_15_TVALID : OUT STD_LOGIC;
+        lane_0_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_0_TVALID : OUT STD_LOGIC;
+        lane_0_TREADY : IN STD_LOGIC;
+        lane_1_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_1_TVALID : OUT STD_LOGIC;
+        lane_1_TREADY : IN STD_LOGIC;
+        lane_2_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_2_TVALID : OUT STD_LOGIC;
+        lane_2_TREADY : IN STD_LOGIC;
+        lane_3_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_3_TVALID : OUT STD_LOGIC;
+        lane_3_TREADY : IN STD_LOGIC;
+        lane_4_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_4_TVALID : OUT STD_LOGIC;
+        lane_4_TREADY : IN STD_LOGIC;
+        lane_5_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_5_TVALID : OUT STD_LOGIC;
+        lane_5_TREADY : IN STD_LOGIC;
+        lane_6_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_6_TVALID : OUT STD_LOGIC;
+        lane_6_TREADY : IN STD_LOGIC;
+        lane_7_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_7_TVALID : OUT STD_LOGIC;
+        lane_7_TREADY : IN STD_LOGIC;
+        lane_8_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_8_TVALID : OUT STD_LOGIC;
+        lane_8_TREADY : IN STD_LOGIC;
+        lane_9_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_9_TVALID : OUT STD_LOGIC;
+        lane_9_TREADY : IN STD_LOGIC;
+        lane_10_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_10_TVALID : OUT STD_LOGIC;
+        lane_10_TREADY : IN STD_LOGIC;
+        lane_11_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_11_TVALID : OUT STD_LOGIC;
+        lane_11_TREADY : IN STD_LOGIC;
+        lane_12_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_12_TVALID : OUT STD_LOGIC;
+        lane_12_TREADY : IN STD_LOGIC;
+        lane_13_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_13_TVALID : OUT STD_LOGIC;
+        lane_13_TREADY : IN STD_LOGIC;
+        lane_14_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_14_TVALID : OUT STD_LOGIC;
+        lane_14_TREADY : IN STD_LOGIC;
+        lane_15_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        lane_15_TVALID : OUT STD_LOGIC;
+        lane_15_TREADY : IN STD_LOGIC;
         p_read : IN STD_LOGIC_VECTOR (15 downto 0);
         p_read1 : IN STD_LOGIC_VECTOR (15 downto 0);
         p_read2 : IN STD_LOGIC_VECTOR (15 downto 0);
@@ -663,6 +792,54 @@ begin
         lane_data_14_TVALID => process_lanes_U0_lane_data_14_TVALID,
         lane_data_15_TDATA => process_lanes_U0_lane_data_15_TDATA,
         lane_data_15_TVALID => process_lanes_U0_lane_data_15_TVALID,
+        lane_0_TLAST => process_lanes_U0_lane_0_TLAST,
+        lane_0_TVALID => process_lanes_U0_lane_0_TVALID,
+        lane_0_TREADY => lane_0_TREADY,
+        lane_1_TLAST => process_lanes_U0_lane_1_TLAST,
+        lane_1_TVALID => process_lanes_U0_lane_1_TVALID,
+        lane_1_TREADY => lane_1_TREADY,
+        lane_2_TLAST => process_lanes_U0_lane_2_TLAST,
+        lane_2_TVALID => process_lanes_U0_lane_2_TVALID,
+        lane_2_TREADY => lane_2_TREADY,
+        lane_3_TLAST => process_lanes_U0_lane_3_TLAST,
+        lane_3_TVALID => process_lanes_U0_lane_3_TVALID,
+        lane_3_TREADY => lane_3_TREADY,
+        lane_4_TLAST => process_lanes_U0_lane_4_TLAST,
+        lane_4_TVALID => process_lanes_U0_lane_4_TVALID,
+        lane_4_TREADY => lane_4_TREADY,
+        lane_5_TLAST => process_lanes_U0_lane_5_TLAST,
+        lane_5_TVALID => process_lanes_U0_lane_5_TVALID,
+        lane_5_TREADY => lane_5_TREADY,
+        lane_6_TLAST => process_lanes_U0_lane_6_TLAST,
+        lane_6_TVALID => process_lanes_U0_lane_6_TVALID,
+        lane_6_TREADY => lane_6_TREADY,
+        lane_7_TLAST => process_lanes_U0_lane_7_TLAST,
+        lane_7_TVALID => process_lanes_U0_lane_7_TVALID,
+        lane_7_TREADY => lane_7_TREADY,
+        lane_8_TLAST => process_lanes_U0_lane_8_TLAST,
+        lane_8_TVALID => process_lanes_U0_lane_8_TVALID,
+        lane_8_TREADY => lane_8_TREADY,
+        lane_9_TLAST => process_lanes_U0_lane_9_TLAST,
+        lane_9_TVALID => process_lanes_U0_lane_9_TVALID,
+        lane_9_TREADY => lane_9_TREADY,
+        lane_10_TLAST => process_lanes_U0_lane_10_TLAST,
+        lane_10_TVALID => process_lanes_U0_lane_10_TVALID,
+        lane_10_TREADY => lane_10_TREADY,
+        lane_11_TLAST => process_lanes_U0_lane_11_TLAST,
+        lane_11_TVALID => process_lanes_U0_lane_11_TVALID,
+        lane_11_TREADY => lane_11_TREADY,
+        lane_12_TLAST => process_lanes_U0_lane_12_TLAST,
+        lane_12_TVALID => process_lanes_U0_lane_12_TVALID,
+        lane_12_TREADY => lane_12_TREADY,
+        lane_13_TLAST => process_lanes_U0_lane_13_TLAST,
+        lane_13_TVALID => process_lanes_U0_lane_13_TVALID,
+        lane_13_TREADY => lane_13_TREADY,
+        lane_14_TLAST => process_lanes_U0_lane_14_TLAST,
+        lane_14_TVALID => process_lanes_U0_lane_14_TVALID,
+        lane_14_TREADY => lane_14_TREADY,
+        lane_15_TLAST => process_lanes_U0_lane_15_TLAST,
+        lane_15_TVALID => process_lanes_U0_lane_15_TVALID,
+        lane_15_TREADY => lane_15_TREADY,
         p_read => iq_M_imag_0_channel_dout,
         p_read1 => iq_M_imag_1_channel_dout,
         p_read2 => iq_M_imag_2_channel_dout,
@@ -1691,6 +1868,38 @@ begin
     ap_sync_channel_write_p_7_channel <= ((p_7_channel_full_n and ap_channel_done_p_7_channel) or ap_sync_reg_channel_write_p_7_channel);
     ap_sync_continue <= ap_const_logic_0;
     istream_data_TREADY <= Block_codeRepl5_proc_U0_istream_data_TREADY;
+    lane_0_TLAST <= process_lanes_U0_lane_0_TLAST;
+    lane_0_TVALID <= process_lanes_U0_lane_0_TVALID;
+    lane_10_TLAST <= process_lanes_U0_lane_10_TLAST;
+    lane_10_TVALID <= process_lanes_U0_lane_10_TVALID;
+    lane_11_TLAST <= process_lanes_U0_lane_11_TLAST;
+    lane_11_TVALID <= process_lanes_U0_lane_11_TVALID;
+    lane_12_TLAST <= process_lanes_U0_lane_12_TLAST;
+    lane_12_TVALID <= process_lanes_U0_lane_12_TVALID;
+    lane_13_TLAST <= process_lanes_U0_lane_13_TLAST;
+    lane_13_TVALID <= process_lanes_U0_lane_13_TVALID;
+    lane_14_TLAST <= process_lanes_U0_lane_14_TLAST;
+    lane_14_TVALID <= process_lanes_U0_lane_14_TVALID;
+    lane_15_TLAST <= process_lanes_U0_lane_15_TLAST;
+    lane_15_TVALID <= process_lanes_U0_lane_15_TVALID;
+    lane_1_TLAST <= process_lanes_U0_lane_1_TLAST;
+    lane_1_TVALID <= process_lanes_U0_lane_1_TVALID;
+    lane_2_TLAST <= process_lanes_U0_lane_2_TLAST;
+    lane_2_TVALID <= process_lanes_U0_lane_2_TVALID;
+    lane_3_TLAST <= process_lanes_U0_lane_3_TLAST;
+    lane_3_TVALID <= process_lanes_U0_lane_3_TVALID;
+    lane_4_TLAST <= process_lanes_U0_lane_4_TLAST;
+    lane_4_TVALID <= process_lanes_U0_lane_4_TVALID;
+    lane_5_TLAST <= process_lanes_U0_lane_5_TLAST;
+    lane_5_TVALID <= process_lanes_U0_lane_5_TVALID;
+    lane_6_TLAST <= process_lanes_U0_lane_6_TLAST;
+    lane_6_TVALID <= process_lanes_U0_lane_6_TVALID;
+    lane_7_TLAST <= process_lanes_U0_lane_7_TLAST;
+    lane_7_TVALID <= process_lanes_U0_lane_7_TVALID;
+    lane_8_TLAST <= process_lanes_U0_lane_8_TLAST;
+    lane_8_TVALID <= process_lanes_U0_lane_8_TVALID;
+    lane_9_TLAST <= process_lanes_U0_lane_9_TLAST;
+    lane_9_TVALID <= process_lanes_U0_lane_9_TVALID;
     lane_data_0_TDATA <= process_lanes_U0_lane_data_0_TDATA;
     lane_data_0_TVALID <= process_lanes_U0_lane_data_0_TVALID;
     lane_data_10_TDATA <= process_lanes_U0_lane_data_10_TDATA;

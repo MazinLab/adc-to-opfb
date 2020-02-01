@@ -74,8 +74,8 @@ architecture behav of Block_codeRepl5_proc is
     signal istream_data_TDATA_blk_n : STD_LOGIC;
     signal qstream_data_TDATA_blk_n : STD_LOGIC;
     signal ap_block_state1 : BOOLEAN;
-    signal trunc_ln67_fu_64_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal trunc_ln67_1_fu_138_p1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal trunc_ln69_fu_64_p1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal trunc_ln69_1_fu_138_p1 : STD_LOGIC_VECTOR (15 downto 0);
     signal ap_return_0_preg : STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000";
     signal ap_return_1_preg : STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000";
     signal ap_return_2_preg : STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000";
@@ -189,7 +189,7 @@ begin
                 ap_return_0_preg <= ap_const_lv16_0;
             else
                 if ((not(((qstream_data_TVALID_int = ap_const_logic_0) or (istream_data_TVALID_int = ap_const_logic_0) or (ap_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-                    ap_return_0_preg <= trunc_ln67_fu_64_p1;
+                    ap_return_0_preg <= trunc_ln69_fu_64_p1;
                 end if; 
             end if;
         end if;
@@ -385,7 +385,7 @@ begin
                 ap_return_8_preg <= ap_const_lv16_0;
             else
                 if ((not(((qstream_data_TVALID_int = ap_const_logic_0) or (istream_data_TVALID_int = ap_const_logic_0) or (ap_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-                    ap_return_8_preg <= trunc_ln67_1_fu_138_p1;
+                    ap_return_8_preg <= trunc_ln69_1_fu_138_p1;
                 end if; 
             end if;
         end if;
@@ -453,10 +453,10 @@ begin
     end process;
 
 
-    ap_return_0_assign_proc : process(ap_start, ap_done_reg, ap_CS_fsm_state1, trunc_ln67_fu_64_p1, ap_return_0_preg, istream_data_TVALID_int, qstream_data_TVALID_int)
+    ap_return_0_assign_proc : process(ap_start, ap_done_reg, ap_CS_fsm_state1, trunc_ln69_fu_64_p1, ap_return_0_preg, istream_data_TVALID_int, qstream_data_TVALID_int)
     begin
         if ((not(((qstream_data_TVALID_int = ap_const_logic_0) or (istream_data_TVALID_int = ap_const_logic_0) or (ap_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-            ap_return_0 <= trunc_ln67_fu_64_p1;
+            ap_return_0 <= trunc_ln69_fu_64_p1;
         else 
             ap_return_0 <= ap_return_0_preg;
         end if; 
@@ -593,10 +593,10 @@ begin
     end process;
 
 
-    ap_return_8_assign_proc : process(ap_start, ap_done_reg, ap_CS_fsm_state1, trunc_ln67_1_fu_138_p1, ap_return_8_preg, istream_data_TVALID_int, qstream_data_TVALID_int)
+    ap_return_8_assign_proc : process(ap_start, ap_done_reg, ap_CS_fsm_state1, trunc_ln69_1_fu_138_p1, ap_return_8_preg, istream_data_TVALID_int, qstream_data_TVALID_int)
     begin
         if ((not(((qstream_data_TVALID_int = ap_const_logic_0) or (istream_data_TVALID_int = ap_const_logic_0) or (ap_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-            ap_return_8 <= trunc_ln67_1_fu_138_p1;
+            ap_return_8 <= trunc_ln69_1_fu_138_p1;
         else 
             ap_return_8 <= ap_return_8_preg;
         end if; 
@@ -672,6 +672,6 @@ begin
         end if; 
     end process;
 
-    trunc_ln67_1_fu_138_p1 <= qstream_data_TDATA_int(16 - 1 downto 0);
-    trunc_ln67_fu_64_p1 <= istream_data_TDATA_int(16 - 1 downto 0);
+    trunc_ln69_1_fu_138_p1 <= qstream_data_TDATA_int(16 - 1 downto 0);
+    trunc_ln69_fu_64_p1 <= istream_data_TDATA_int(16 - 1 downto 0);
 end behav;

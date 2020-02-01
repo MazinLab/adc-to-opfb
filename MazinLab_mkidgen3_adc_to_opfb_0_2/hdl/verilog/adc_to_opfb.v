@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="adc_to_opfb,hls_ip_2019_2_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu28dr-ffvg1517-2-e,HLS_INPUT_CLOCK=1.818000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=1.361000,HLS_SYN_LAT=3,HLS_SYN_TPT=1,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=3016,HLS_SYN_LUT=6999,HLS_VERSION=2019_2_1}" *)
+(* CORE_GENERATION_INFO="adc_to_opfb,hls_ip_2019_2_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu28dr-ffvg1517-2-e,HLS_INPUT_CLOCK=1.818000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=1.361000,HLS_SYN_LAT=3,HLS_SYN_TPT=1,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=3023,HLS_SYN_LUT=7025,HLS_VERSION=2019_2_1}" *)
 
 module adc_to_opfb (
         istream_data_TDATA,
@@ -28,6 +28,22 @@ module adc_to_opfb (
         lane_data_13_TDATA,
         lane_data_14_TDATA,
         lane_data_15_TDATA,
+        lane_0_TLAST,
+        lane_1_TLAST,
+        lane_2_TLAST,
+        lane_3_TLAST,
+        lane_4_TLAST,
+        lane_5_TLAST,
+        lane_6_TLAST,
+        lane_7_TLAST,
+        lane_8_TLAST,
+        lane_9_TLAST,
+        lane_10_TLAST,
+        lane_11_TLAST,
+        lane_12_TLAST,
+        lane_13_TLAST,
+        lane_14_TLAST,
+        lane_15_TLAST,
         ap_clk,
         ap_rst_n,
         istream_data_TVALID,
@@ -65,7 +81,39 @@ module adc_to_opfb (
         lane_data_14_TVALID,
         lane_data_14_TREADY,
         lane_data_15_TVALID,
-        lane_data_15_TREADY
+        lane_data_15_TREADY,
+        lane_0_TVALID,
+        lane_0_TREADY,
+        lane_1_TVALID,
+        lane_1_TREADY,
+        lane_2_TVALID,
+        lane_2_TREADY,
+        lane_3_TVALID,
+        lane_3_TREADY,
+        lane_4_TVALID,
+        lane_4_TREADY,
+        lane_5_TVALID,
+        lane_5_TREADY,
+        lane_6_TVALID,
+        lane_6_TREADY,
+        lane_7_TVALID,
+        lane_7_TREADY,
+        lane_8_TVALID,
+        lane_8_TREADY,
+        lane_9_TVALID,
+        lane_9_TREADY,
+        lane_10_TVALID,
+        lane_10_TREADY,
+        lane_11_TVALID,
+        lane_11_TREADY,
+        lane_12_TVALID,
+        lane_12_TREADY,
+        lane_13_TVALID,
+        lane_13_TREADY,
+        lane_14_TVALID,
+        lane_14_TREADY,
+        lane_15_TVALID,
+        lane_15_TREADY
 );
 
 
@@ -87,6 +135,22 @@ output  [31:0] lane_data_12_TDATA;
 output  [31:0] lane_data_13_TDATA;
 output  [31:0] lane_data_14_TDATA;
 output  [31:0] lane_data_15_TDATA;
+output  [0:0] lane_0_TLAST;
+output  [0:0] lane_1_TLAST;
+output  [0:0] lane_2_TLAST;
+output  [0:0] lane_3_TLAST;
+output  [0:0] lane_4_TLAST;
+output  [0:0] lane_5_TLAST;
+output  [0:0] lane_6_TLAST;
+output  [0:0] lane_7_TLAST;
+output  [0:0] lane_8_TLAST;
+output  [0:0] lane_9_TLAST;
+output  [0:0] lane_10_TLAST;
+output  [0:0] lane_11_TLAST;
+output  [0:0] lane_12_TLAST;
+output  [0:0] lane_13_TLAST;
+output  [0:0] lane_14_TLAST;
+output  [0:0] lane_15_TLAST;
 input   ap_clk;
 input   ap_rst_n;
 input   istream_data_TVALID;
@@ -125,6 +189,38 @@ output   lane_data_14_TVALID;
 input   lane_data_14_TREADY;
 output   lane_data_15_TVALID;
 input   lane_data_15_TREADY;
+output   lane_0_TVALID;
+input   lane_0_TREADY;
+output   lane_1_TVALID;
+input   lane_1_TREADY;
+output   lane_2_TVALID;
+input   lane_2_TREADY;
+output   lane_3_TVALID;
+input   lane_3_TREADY;
+output   lane_4_TVALID;
+input   lane_4_TREADY;
+output   lane_5_TVALID;
+input   lane_5_TREADY;
+output   lane_6_TVALID;
+input   lane_6_TREADY;
+output   lane_7_TVALID;
+input   lane_7_TREADY;
+output   lane_8_TVALID;
+input   lane_8_TREADY;
+output   lane_9_TVALID;
+input   lane_9_TREADY;
+output   lane_10_TVALID;
+input   lane_10_TREADY;
+output   lane_11_TVALID;
+input   lane_11_TREADY;
+output   lane_12_TVALID;
+input   lane_12_TREADY;
+output   lane_13_TVALID;
+input   lane_13_TREADY;
+output   lane_14_TVALID;
+input   lane_14_TREADY;
+output   lane_15_TVALID;
+input   lane_15_TREADY;
 
  reg    ap_rst_n_inv;
 wire    Block_codeRepl5_proc_U0_ap_start;
@@ -336,6 +432,38 @@ wire   [31:0] process_lanes_U0_lane_data_14_TDATA;
 wire    process_lanes_U0_lane_data_14_TVALID;
 wire   [31:0] process_lanes_U0_lane_data_15_TDATA;
 wire    process_lanes_U0_lane_data_15_TVALID;
+wire   [0:0] process_lanes_U0_lane_0_TLAST;
+wire    process_lanes_U0_lane_0_TVALID;
+wire   [0:0] process_lanes_U0_lane_1_TLAST;
+wire    process_lanes_U0_lane_1_TVALID;
+wire   [0:0] process_lanes_U0_lane_2_TLAST;
+wire    process_lanes_U0_lane_2_TVALID;
+wire   [0:0] process_lanes_U0_lane_3_TLAST;
+wire    process_lanes_U0_lane_3_TVALID;
+wire   [0:0] process_lanes_U0_lane_4_TLAST;
+wire    process_lanes_U0_lane_4_TVALID;
+wire   [0:0] process_lanes_U0_lane_5_TLAST;
+wire    process_lanes_U0_lane_5_TVALID;
+wire   [0:0] process_lanes_U0_lane_6_TLAST;
+wire    process_lanes_U0_lane_6_TVALID;
+wire   [0:0] process_lanes_U0_lane_7_TLAST;
+wire    process_lanes_U0_lane_7_TVALID;
+wire   [0:0] process_lanes_U0_lane_8_TLAST;
+wire    process_lanes_U0_lane_8_TVALID;
+wire   [0:0] process_lanes_U0_lane_9_TLAST;
+wire    process_lanes_U0_lane_9_TVALID;
+wire   [0:0] process_lanes_U0_lane_10_TLAST;
+wire    process_lanes_U0_lane_10_TVALID;
+wire   [0:0] process_lanes_U0_lane_11_TLAST;
+wire    process_lanes_U0_lane_11_TVALID;
+wire   [0:0] process_lanes_U0_lane_12_TLAST;
+wire    process_lanes_U0_lane_12_TVALID;
+wire   [0:0] process_lanes_U0_lane_13_TLAST;
+wire    process_lanes_U0_lane_13_TVALID;
+wire   [0:0] process_lanes_U0_lane_14_TLAST;
+wire    process_lanes_U0_lane_14_TVALID;
+wire   [0:0] process_lanes_U0_lane_15_TLAST;
+wire    process_lanes_U0_lane_15_TVALID;
 wire    ap_sync_continue;
 wire   [15:0] p_0_channel_dout;
 wire    p_0_channel_empty_n;
@@ -574,6 +702,54 @@ process_lanes process_lanes_U0(
     .lane_data_14_TVALID(process_lanes_U0_lane_data_14_TVALID),
     .lane_data_15_TDATA(process_lanes_U0_lane_data_15_TDATA),
     .lane_data_15_TVALID(process_lanes_U0_lane_data_15_TVALID),
+    .lane_0_TLAST(process_lanes_U0_lane_0_TLAST),
+    .lane_0_TVALID(process_lanes_U0_lane_0_TVALID),
+    .lane_0_TREADY(lane_0_TREADY),
+    .lane_1_TLAST(process_lanes_U0_lane_1_TLAST),
+    .lane_1_TVALID(process_lanes_U0_lane_1_TVALID),
+    .lane_1_TREADY(lane_1_TREADY),
+    .lane_2_TLAST(process_lanes_U0_lane_2_TLAST),
+    .lane_2_TVALID(process_lanes_U0_lane_2_TVALID),
+    .lane_2_TREADY(lane_2_TREADY),
+    .lane_3_TLAST(process_lanes_U0_lane_3_TLAST),
+    .lane_3_TVALID(process_lanes_U0_lane_3_TVALID),
+    .lane_3_TREADY(lane_3_TREADY),
+    .lane_4_TLAST(process_lanes_U0_lane_4_TLAST),
+    .lane_4_TVALID(process_lanes_U0_lane_4_TVALID),
+    .lane_4_TREADY(lane_4_TREADY),
+    .lane_5_TLAST(process_lanes_U0_lane_5_TLAST),
+    .lane_5_TVALID(process_lanes_U0_lane_5_TVALID),
+    .lane_5_TREADY(lane_5_TREADY),
+    .lane_6_TLAST(process_lanes_U0_lane_6_TLAST),
+    .lane_6_TVALID(process_lanes_U0_lane_6_TVALID),
+    .lane_6_TREADY(lane_6_TREADY),
+    .lane_7_TLAST(process_lanes_U0_lane_7_TLAST),
+    .lane_7_TVALID(process_lanes_U0_lane_7_TVALID),
+    .lane_7_TREADY(lane_7_TREADY),
+    .lane_8_TLAST(process_lanes_U0_lane_8_TLAST),
+    .lane_8_TVALID(process_lanes_U0_lane_8_TVALID),
+    .lane_8_TREADY(lane_8_TREADY),
+    .lane_9_TLAST(process_lanes_U0_lane_9_TLAST),
+    .lane_9_TVALID(process_lanes_U0_lane_9_TVALID),
+    .lane_9_TREADY(lane_9_TREADY),
+    .lane_10_TLAST(process_lanes_U0_lane_10_TLAST),
+    .lane_10_TVALID(process_lanes_U0_lane_10_TVALID),
+    .lane_10_TREADY(lane_10_TREADY),
+    .lane_11_TLAST(process_lanes_U0_lane_11_TLAST),
+    .lane_11_TVALID(process_lanes_U0_lane_11_TVALID),
+    .lane_11_TREADY(lane_11_TREADY),
+    .lane_12_TLAST(process_lanes_U0_lane_12_TLAST),
+    .lane_12_TVALID(process_lanes_U0_lane_12_TVALID),
+    .lane_12_TREADY(lane_12_TREADY),
+    .lane_13_TLAST(process_lanes_U0_lane_13_TLAST),
+    .lane_13_TVALID(process_lanes_U0_lane_13_TVALID),
+    .lane_13_TREADY(lane_13_TREADY),
+    .lane_14_TLAST(process_lanes_U0_lane_14_TLAST),
+    .lane_14_TVALID(process_lanes_U0_lane_14_TVALID),
+    .lane_14_TREADY(lane_14_TREADY),
+    .lane_15_TLAST(process_lanes_U0_lane_15_TLAST),
+    .lane_15_TVALID(process_lanes_U0_lane_15_TVALID),
+    .lane_15_TREADY(lane_15_TREADY),
     .p_read(iq_M_imag_0_channel_dout),
     .p_read1(iq_M_imag_1_channel_dout),
     .p_read2(iq_M_imag_2_channel_dout),
@@ -1543,6 +1719,70 @@ assign ap_sync_channel_write_p_7_channel = ((p_7_channel_full_n & ap_channel_don
 assign ap_sync_continue = 1'b0;
 
 assign istream_data_TREADY = Block_codeRepl5_proc_U0_istream_data_TREADY;
+
+assign lane_0_TLAST = process_lanes_U0_lane_0_TLAST;
+
+assign lane_0_TVALID = process_lanes_U0_lane_0_TVALID;
+
+assign lane_10_TLAST = process_lanes_U0_lane_10_TLAST;
+
+assign lane_10_TVALID = process_lanes_U0_lane_10_TVALID;
+
+assign lane_11_TLAST = process_lanes_U0_lane_11_TLAST;
+
+assign lane_11_TVALID = process_lanes_U0_lane_11_TVALID;
+
+assign lane_12_TLAST = process_lanes_U0_lane_12_TLAST;
+
+assign lane_12_TVALID = process_lanes_U0_lane_12_TVALID;
+
+assign lane_13_TLAST = process_lanes_U0_lane_13_TLAST;
+
+assign lane_13_TVALID = process_lanes_U0_lane_13_TVALID;
+
+assign lane_14_TLAST = process_lanes_U0_lane_14_TLAST;
+
+assign lane_14_TVALID = process_lanes_U0_lane_14_TVALID;
+
+assign lane_15_TLAST = process_lanes_U0_lane_15_TLAST;
+
+assign lane_15_TVALID = process_lanes_U0_lane_15_TVALID;
+
+assign lane_1_TLAST = process_lanes_U0_lane_1_TLAST;
+
+assign lane_1_TVALID = process_lanes_U0_lane_1_TVALID;
+
+assign lane_2_TLAST = process_lanes_U0_lane_2_TLAST;
+
+assign lane_2_TVALID = process_lanes_U0_lane_2_TVALID;
+
+assign lane_3_TLAST = process_lanes_U0_lane_3_TLAST;
+
+assign lane_3_TVALID = process_lanes_U0_lane_3_TVALID;
+
+assign lane_4_TLAST = process_lanes_U0_lane_4_TLAST;
+
+assign lane_4_TVALID = process_lanes_U0_lane_4_TVALID;
+
+assign lane_5_TLAST = process_lanes_U0_lane_5_TLAST;
+
+assign lane_5_TVALID = process_lanes_U0_lane_5_TVALID;
+
+assign lane_6_TLAST = process_lanes_U0_lane_6_TLAST;
+
+assign lane_6_TVALID = process_lanes_U0_lane_6_TVALID;
+
+assign lane_7_TLAST = process_lanes_U0_lane_7_TLAST;
+
+assign lane_7_TVALID = process_lanes_U0_lane_7_TVALID;
+
+assign lane_8_TLAST = process_lanes_U0_lane_8_TLAST;
+
+assign lane_8_TVALID = process_lanes_U0_lane_8_TVALID;
+
+assign lane_9_TLAST = process_lanes_U0_lane_9_TLAST;
+
+assign lane_9_TVALID = process_lanes_U0_lane_9_TVALID;
 
 assign lane_data_0_TDATA = process_lanes_U0_lane_data_0_TDATA;
 

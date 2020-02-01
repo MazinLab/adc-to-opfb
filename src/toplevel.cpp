@@ -20,7 +20,7 @@ void lane_delay_interleave(iq_t in, iq_t &out, iq128delay_t &delay_line, bool ge
 
 void process_lanes(iq_t iq[N_ADC_OUT], pfbaxisin_t lane[N_LANES]) {
 #pragma HLS pipeline ii=1
-	static ap_uint<1> cycle;
+	static ap_uint<8> cycle;
 	static iq128delay_t delays[N_LANES];
 	static iq_t even_lane_z1[N_LANES/2];
 #pragma HLS ARRAY_PARTITION variable=even_lane_z1 complete
@@ -39,9 +39,11 @@ void process_lanes(iq_t iq[N_ADC_OUT], pfbaxisin_t lane[N_LANES]) {
 		//Delay to get things back in sync
 		if (!odd_lane) {
 			lane[i].data = even_lane_z1[i/2];
+			lane[i].last=cycle==255;
 			even_lane_z1[i/2]=iq_out;
 		} else {
 			lane[i].data=iq_out;
+			lane[i].last=cycle==255;
 		}
 	}
 	cycle++;
