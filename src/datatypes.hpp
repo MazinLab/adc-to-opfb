@@ -11,7 +11,12 @@
 typedef ap_fixed<16, 1, AP_RND_CONV, AP_SAT> sample_t;
 typedef unsigned short rawsample_t;
 
-typedef std::complex<rawsample_t> iq_t;
+//typedef std::complex<rawsample_t> iq_t;
+//typedef struct {
+//	rawsample_t real;
+//	rawsample_t imag;
+//} iq_t;
+typedef ap_uint<32> iq_t;
 
 typedef struct {
 	rawsample_t data[N_ADC_OUT];
@@ -19,12 +24,8 @@ typedef struct {
 
 typedef struct {
 	iq_t data;
-	ap_uint<1> last;
+	bool last;
 } pfbaxisin_t;
-
-//typedef struct {
-//	iq_t data[N_ADC_OUT];
-//} iqgroup_t;
 
 
 #endif
