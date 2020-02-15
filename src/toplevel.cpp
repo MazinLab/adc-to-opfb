@@ -1,11 +1,14 @@
 #include "toplevel.hpp"
 
-void adc2iq(adcaxis_t istream, adcaxis_t qstream, iq_t iq[N_ADC_OUT]) {
+void adc2iq(adcaxis_t &iin, adcaxis_t &qin, hls::stream<iq_t> iq[N_ADC_OUT]) {
 //Package raw ADC samples into complex fixed point IQ values
 #pragma HLS INLINE off
+#pragma HLS INTERFACE ap_ctrl_none port=return
+	adcaxis_t istream=iin;
+	adcaxis_t qstream=qin;
 	adcpack: for (int i=0;i<N_ADC_OUT;i++) {
 #pragma HLS UNROLL
-		iq[i]=iq_t(istream.data[i], qstream.data[i]);
+		iq[i].write(((unsigned int)istream.data[i]) | (((unsigned int)qstream.data[i])<<16));
 	}
 }
 
@@ -18,12 +21,19 @@ void lane_delay_interleave(iq_t in, iq_t &out, iq128delay_t &delay_line, bool ge
 	out = get_delayed ? delay_iq:in;
 }
 
-void process_lanes(iq_t iq[N_ADC_OUT], pfbaxisin_t lane[N_LANES]) {
-#pragma HLS pipeline ii=1
+void process_lanes(hls::stream<iq_t> iqstream[N_ADC_OUT], pfbaxisin_t lane[N_LANES]) {
+#pragma HLS PIPELINE II=1
+#pragma HLS INTERFACE ap_ctrl_none port=return
 	static ap_uint<8> cycle;
 	static iq128delay_t delays[N_LANES];
 	static iq_t even_lane_z1[N_LANES/2];
 #pragma HLS ARRAY_PARTITION variable=even_lane_z1 complete
+
+	iq_t iq[N_ADC_OUT];
+#pragma HLS ARRAY_PARTITION variable=iq complete
+	readiqstream: for (int i=0;i<N_ADC_OUT;i++) {
+		iq[i]=iqstream[i].read();
+	}
 
 	eachlane: for (int i=0;i<N_LANES;i++) {
 #pragma HLS UNROLL
@@ -32,9 +42,9 @@ void process_lanes(iq_t iq[N_ADC_OUT], pfbaxisin_t lane[N_LANES]) {
 		bool run_lane;
 		iq_t iq_out;
 
-		//Odd lanes get odd cycles, even lanes get even cycles
+		//Odd lanes get odd cycles, even lanes get even cycles, update every other lane
 		run_lane = odd_cycle ? odd_lane : !odd_lane;
-		lane_delay_interleave(iq[i/2], iq_out, delays[i], !run_lane); //update every other lane
+		lane_delay_interleave(iq[i/2], iq_out, delays[i], !run_lane);
 
 		//Delay to get things back in sync
 		if (!odd_lane) {
@@ -53,18 +63,15 @@ void adc_to_opfb(adcaxis_t &istream, adcaxis_t &qstream, pfbaxisin_t lane[N_LANE
 #pragma HLS DATAFLOW
 #pragma HLS DATA_PACK variable=istream
 #pragma HLS DATA_PACK variable=qstream
-#pragma HLS DATA_PACK variable=lane
 #pragma HLS INTERFACE axis port=istream depth=768 register=reverse
 #pragma HLS INTERFACE axis port=qstream depth=768 register=reverse
 #pragma HLS INTERFACE axis port=lane depth=768 register=forward
-#pragma HLS STREAM depth=768 variable=lane
-#pragma HLS STREAM depth=768 variable=istream
-#pragma HLS STREAM depth=768 variable=qstream
 #pragma HLS ARRAY_PARTITION variable=lane complete
 //#pragma HLS INTERFACE s_axilite port=return depth=768 //for cosim warning, don't need this
 #pragma HLS INTERFACE ap_ctrl_none port=return
 
-	iq_t iq[N_ADC_OUT];
+	hls::stream<iq_t> iq[N_ADC_OUT];
+#pragma HLS ARRAY_PARTITION variable=iq complete
 
 	adc2iq(istream, qstream, iq);
 	process_lanes(iq, lane);

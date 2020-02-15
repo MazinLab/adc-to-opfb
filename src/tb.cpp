@@ -46,7 +46,7 @@ int main(){
 				bool even_cycle=(cycle+1)%2;
 
 				int predicted=N_LANES*(cycle-1)/2 + 8*odd_lane + k/2 - 2040*even_cycle;
-				int lanev=lane[cycle][k].data.real();
+				int lanev=lane[cycle][k].data.to_int()&0xffff;// real();
 
 				if ((k<PRINT_LANES&&i>0)&&!PRINT_LANES) {
 					cout<<"p"<<predicted;
