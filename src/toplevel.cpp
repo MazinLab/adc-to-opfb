@@ -63,11 +63,10 @@ void adc_to_opfb(adcaxis_t &istream, adcaxis_t &qstream, pfbaxisin_t lane[N_LANE
 #pragma HLS DATAFLOW
 #pragma HLS DATA_PACK variable=istream
 #pragma HLS DATA_PACK variable=qstream
-#pragma HLS INTERFACE axis port=istream depth=768 register=reverse
-#pragma HLS INTERFACE axis port=qstream depth=768 register=reverse
-#pragma HLS INTERFACE axis port=lane depth=768 register=forward
+#pragma HLS INTERFACE axis port=istream register=reverse
+#pragma HLS INTERFACE axis port=qstream register=reverse
+#pragma HLS INTERFACE axis port=lane register=forward
 #pragma HLS ARRAY_PARTITION variable=lane complete
-//#pragma HLS INTERFACE s_axilite port=return depth=768 //for cosim warning, don't need this
 #pragma HLS INTERFACE ap_ctrl_none port=return
 
 	hls::stream<iq_t> iq[N_ADC_OUT];
