@@ -21,7 +21,7 @@ void adc2iq(adcaxis_t iin, adcaxis_t qin, iq_t iq[N_ADC_OUT]) {
 
 
 void process_lanes(iq_t iqs[N_ADC_OUT], pfbaxisin_t lane[N_LANES]) {
-#pragma HLS pipeline ii=1
+#pragma HLS INLINE
 	static bool primed;
 	static ap_uint<8> cycle;
 	static iq_t even_lane_z1[N_LANES/2];
