@@ -31,10 +31,28 @@ int main(){
 		}
 	}
 
+
+	#ifdef __PRINT_PATTERN__
+	cout<<"Clock  : ";
+	for (int i=0; i<N_CYCLES;i++) { // Go through more than once to see the phase increment
+		for (int j=0;j<N_GROUPS;j++) { //takes N_RES_GROUPS cycles to get through each resonator once
+			int cycle=N_GROUPS*i+j;
+			int comma = cycle % 128;
+			if (comma<3 || comma>126) {
+				cout<<setw(4)<<cycle;
+				//if (i==0 && j==0) continue;
+				if (comma==2) cout<<" ... ";
+				else if (comma!=126) cout<<", ";
+			}
+		}
+	}
+	cout<<endl;
+	#endif
+
 	//Compare the result
 	for (int k=0; k<N_LANES; k++){
 		for (int i=0; i<N_CYCLES;i++) { // Go through more than once to see the phase increment
-			if (i==0 &&k<PRINT_LANES) cout<<"Lane "<<k<<",";
+			if (i==0 &&k<PRINT_LANES) cout<<"Lane "<<setw(2)<<k<<": ";
 			for (int j=0;j<N_GROUPS;j++) { //takes N_RES_GROUPS cycles to get through each resonator once
 
 				//istream[j].data[k/2] odds went into odd k
@@ -56,7 +74,13 @@ int main(){
 				}
 
 				#ifdef __PRINT_PATTERN__
-					if (k<PRINT_LANES&i>0) cout<<lanev<<", ";
+					int comma = cycle % 128;
+					if (comma<3 || comma>126) {
+						cout<<setw(4)<<lanev;
+						//if (i==0 && j==0) continue;
+						if (comma==2) cout<<" ... ";
+						else if (comma!=126) cout<<", ";
+					}
 				#endif
 
 				fail|= (predicted!=lanev&&i>0);
