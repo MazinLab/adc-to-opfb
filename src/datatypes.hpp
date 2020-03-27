@@ -22,4 +22,12 @@ typedef struct {
 	ap_uint<1> last;
 } pfbaxisin_t;
 
+typedef struct {
+	iq_t data[N_ADC_OUT];
+} iqadcgroup_t;
+
+typedef struct {
+	iq_t data[N_LANES];
+} iqlanegroup_t;
+
 #endif
