@@ -5,7 +5,7 @@
 
 `timescale 1 ns / 1 ps
 
-module process_lanes_delbkb_core (
+module process_lanes_evebkb_core (
     clk,
     ce,
     din,
@@ -46,7 +46,7 @@ assign dout = ShiftRegMem[addr];
 
 endmodule
 
-module process_lanes_delbkb (
+module process_lanes_evebkb (
     clk,
     reset,
     address0,
@@ -67,11 +67,11 @@ input we0;
 input [DataWidth-1:0] d0;
 output [DataWidth-1:0] q0;
 
-process_lanes_delbkb_core #(
+process_lanes_evebkb_core #(
     .DATA_WIDTH( DataWidth ),
     .ADDR_WIDTH( AddressWidth ),
     .DEPTH( AddressRange ))
-process_lanes_delbkb_core_U(
+process_lanes_evebkb_core_U(
     .clk(clk),
     .ce(we0),
     .din(d0),

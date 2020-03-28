@@ -8,9 +8,9 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
-entity process_lanes_delbkb_core is
+entity process_lanes_evebkb_core is
     generic (
-        DATA_WIDTH : integer := 16;
+        DATA_WIDTH : integer := 32;
         ADDR_WIDTH : integer := 7;
         DEPTH : integer := 128);
     port (
@@ -21,11 +21,11 @@ entity process_lanes_delbkb_core is
         dout : out std_logic_vector(DATA_WIDTH-1 downto 0));
 
     attribute keep_hierarchy : string;
-    attribute keep_hierarchy of process_lanes_delbkb_core : entity is "yes";
+    attribute keep_hierarchy of process_lanes_evebkb_core : entity is "yes";
 
 end entity;
 
-architecture rtl of process_lanes_delbkb_core is
+architecture rtl of process_lanes_evebkb_core is
 type SRL_ARRAY is array (0 to DEPTH-1) of std_logic_vector(DATA_WIDTH-1 downto 0);
 signal ShiftRegMem : SRL_ARRAY := (others=>(others=>'0'));
 
@@ -53,9 +53,9 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 
-entity process_lanes_delbkb is
+entity process_lanes_evebkb is
     generic (
-        DataWidth : integer := 16;
+        DataWidth : integer := 32;
         AddressWidth : integer := 7;
         AddressRange : integer := 128);
     port (
@@ -68,9 +68,9 @@ entity process_lanes_delbkb is
         q0 : out std_logic_vector(DataWidth-1 downto 0));
 end;
 
-architecture behav of process_lanes_delbkb is
+architecture behav of process_lanes_evebkb is
 
-    component process_lanes_delbkb_core is
+    component process_lanes_evebkb_core is
         generic (
             DATA_WIDTH : integer;
             ADDR_WIDTH : integer;
@@ -84,7 +84,7 @@ architecture behav of process_lanes_delbkb is
     end component;
 
 begin
-    process_lanes_delbkb_core_U : component process_lanes_delbkb_core
+    process_lanes_evebkb_core_U : component process_lanes_evebkb_core
     generic map (
         DATA_WIDTH => DataWidth,
         ADDR_WIDTH => AddressWidth,

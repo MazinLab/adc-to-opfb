@@ -3,7 +3,7 @@
   <spirit:vendor>MazinLab</spirit:vendor>
   <spirit:library>mkidgen3</spirit:library>
   <spirit:name>adc_to_opfb</spirit:name>
-  <spirit:version>0.3</spirit:version>
+  <spirit:version>0.4</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
       <spirit:name>istream_data</spirit:name>
@@ -1024,7 +1024,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>4d015b1e</spirit:value>
+            <spirit:value>17f44996</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1040,7 +1040,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1242321a</spirit:value>
+            <spirit:value>70b9dad5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1056,7 +1056,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>a24c96c6</spirit:value>
+            <spirit:value>2f17d602</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1072,7 +1072,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>bb8361a2</spirit:value>
+            <spirit:value>810c48d3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1108,7 +1108,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>efcb1864</spirit:value>
+            <spirit:value>ff265e01</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2237,7 +2237,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/process_lanes_delbkb.v</spirit:name>
+        <spirit:name>hdl/verilog/process_lanes_evebkb.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2271,7 +2271,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/process_lanes_delbkb.v</spirit:name>
+        <spirit:name>hdl/verilog/process_lanes_evebkb.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2311,7 +2311,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/process_lanes_delbkb.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/process_lanes_evebkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2325,7 +2325,7 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/adc_to_opfb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_eef9f8e8</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_0d336c9a</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -2346,7 +2346,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/process_lanes_delbkb.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/process_lanes_evebkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2390,7 +2390,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/adc_to_opfb_v0_3.tcl</spirit:name>
+        <spirit:name>xgui/adc_to_opfb_v0_4.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
         <spirit:userFileType>CHECKSUM_1b589c1a</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
@@ -2409,7 +2409,7 @@
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">adc_to_opfb_v0_3</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">adc_to_opfb_v0_4</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>clk_period</spirit:name>
@@ -2442,15 +2442,15 @@
       </xilinx:taxonomies>
       <xilinx:displayName>ADC to OPFB</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2002141828</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2020-02-15T02:28:58Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2003271815</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2020-03-28T01:15:46Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.2.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7bd678d1"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ddc1cd4d"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="45b86584"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="25406fdb"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="8c22115b"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="d57f719e"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

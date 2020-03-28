@@ -89,7 +89,7 @@ end;
 architecture behav of adc_to_opfb is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "adc_to_opfb,hls_ip_2019_2_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu28dr-ffvg1517-2-e,HLS_INPUT_CLOCK=1.953000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=1.453000,HLS_SYN_LAT=3,HLS_SYN_TPT=1,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=1591,HLS_SYN_LUT=3575,HLS_VERSION=2019_2_1}";
+    "adc_to_opfb,hls_ip_2019_2_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu28dr-ffvg1517-2-e,HLS_INPUT_CLOCK=1.953000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=1.453000,HLS_SYN_LAT=3,HLS_SYN_TPT=1,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=1591,HLS_SYN_LUT=3505,HLS_VERSION=2019_2_1}";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_logic_1 : STD_LOGIC := '1';
@@ -105,35 +105,35 @@ architecture behav of adc_to_opfb is
     signal adc2iq_U0_start_write : STD_LOGIC;
     signal adc2iq_U0_iin_data_TREADY : STD_LOGIC;
     signal adc2iq_U0_qin_data_TREADY : STD_LOGIC;
-    signal adc2iq_U0_iq_0_V_V_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal adc2iq_U0_iq_0_V_V_write : STD_LOGIC;
-    signal adc2iq_U0_iq_1_V_V_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal adc2iq_U0_iq_1_V_V_write : STD_LOGIC;
-    signal adc2iq_U0_iq_2_V_V_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal adc2iq_U0_iq_2_V_V_write : STD_LOGIC;
-    signal adc2iq_U0_iq_3_V_V_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal adc2iq_U0_iq_3_V_V_write : STD_LOGIC;
-    signal adc2iq_U0_iq_4_V_V_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal adc2iq_U0_iq_4_V_V_write : STD_LOGIC;
-    signal adc2iq_U0_iq_5_V_V_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal adc2iq_U0_iq_5_V_V_write : STD_LOGIC;
-    signal adc2iq_U0_iq_6_V_V_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal adc2iq_U0_iq_6_V_V_write : STD_LOGIC;
-    signal adc2iq_U0_iq_7_V_V_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal adc2iq_U0_iq_7_V_V_write : STD_LOGIC;
+    signal adc2iq_U0_iq_V_data_0_V_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal adc2iq_U0_iq_V_data_0_V_write : STD_LOGIC;
+    signal adc2iq_U0_iq_V_data_1_V_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal adc2iq_U0_iq_V_data_1_V_write : STD_LOGIC;
+    signal adc2iq_U0_iq_V_data_2_V_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal adc2iq_U0_iq_V_data_2_V_write : STD_LOGIC;
+    signal adc2iq_U0_iq_V_data_3_V_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal adc2iq_U0_iq_V_data_3_V_write : STD_LOGIC;
+    signal adc2iq_U0_iq_V_data_4_V_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal adc2iq_U0_iq_V_data_4_V_write : STD_LOGIC;
+    signal adc2iq_U0_iq_V_data_5_V_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal adc2iq_U0_iq_V_data_5_V_write : STD_LOGIC;
+    signal adc2iq_U0_iq_V_data_6_V_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal adc2iq_U0_iq_V_data_6_V_write : STD_LOGIC;
+    signal adc2iq_U0_iq_V_data_7_V_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal adc2iq_U0_iq_V_data_7_V_write : STD_LOGIC;
     signal process_lanes_U0_ap_start : STD_LOGIC;
     signal process_lanes_U0_ap_done : STD_LOGIC;
     signal process_lanes_U0_ap_continue : STD_LOGIC;
     signal process_lanes_U0_ap_idle : STD_LOGIC;
     signal process_lanes_U0_ap_ready : STD_LOGIC;
-    signal process_lanes_U0_iqstream_0_V_V_read : STD_LOGIC;
-    signal process_lanes_U0_iqstream_1_V_V_read : STD_LOGIC;
-    signal process_lanes_U0_iqstream_2_V_V_read : STD_LOGIC;
-    signal process_lanes_U0_iqstream_3_V_V_read : STD_LOGIC;
-    signal process_lanes_U0_iqstream_4_V_V_read : STD_LOGIC;
-    signal process_lanes_U0_iqstream_5_V_V_read : STD_LOGIC;
-    signal process_lanes_U0_iqstream_6_V_V_read : STD_LOGIC;
-    signal process_lanes_U0_iqstream_7_V_V_read : STD_LOGIC;
+    signal process_lanes_U0_iqstream_V_data_0_V_read : STD_LOGIC;
+    signal process_lanes_U0_iqstream_V_data_1_V_read : STD_LOGIC;
+    signal process_lanes_U0_iqstream_V_data_2_V_read : STD_LOGIC;
+    signal process_lanes_U0_iqstream_V_data_3_V_read : STD_LOGIC;
+    signal process_lanes_U0_iqstream_V_data_4_V_read : STD_LOGIC;
+    signal process_lanes_U0_iqstream_V_data_5_V_read : STD_LOGIC;
+    signal process_lanes_U0_iqstream_V_data_6_V_read : STD_LOGIC;
+    signal process_lanes_U0_iqstream_V_data_7_V_read : STD_LOGIC;
     signal process_lanes_U0_lane_0_TDATA : STD_LOGIC_VECTOR (31 downto 0);
     signal process_lanes_U0_lane_0_TVALID : STD_LOGIC;
     signal process_lanes_U0_lane_1_TDATA : STD_LOGIC_VECTOR (31 downto 0);
@@ -183,30 +183,30 @@ architecture behav of adc_to_opfb is
     signal process_lanes_U0_lane_14_TLAST : STD_LOGIC_VECTOR (0 downto 0);
     signal process_lanes_U0_lane_15_TLAST : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_sync_continue : STD_LOGIC;
-    signal iq_0_V_V_full_n : STD_LOGIC;
-    signal iq_0_V_V_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal iq_0_V_V_empty_n : STD_LOGIC;
-    signal iq_1_V_V_full_n : STD_LOGIC;
-    signal iq_1_V_V_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal iq_1_V_V_empty_n : STD_LOGIC;
-    signal iq_2_V_V_full_n : STD_LOGIC;
-    signal iq_2_V_V_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal iq_2_V_V_empty_n : STD_LOGIC;
-    signal iq_3_V_V_full_n : STD_LOGIC;
-    signal iq_3_V_V_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal iq_3_V_V_empty_n : STD_LOGIC;
-    signal iq_4_V_V_full_n : STD_LOGIC;
-    signal iq_4_V_V_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal iq_4_V_V_empty_n : STD_LOGIC;
-    signal iq_5_V_V_full_n : STD_LOGIC;
-    signal iq_5_V_V_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal iq_5_V_V_empty_n : STD_LOGIC;
-    signal iq_6_V_V_full_n : STD_LOGIC;
-    signal iq_6_V_V_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal iq_6_V_V_empty_n : STD_LOGIC;
-    signal iq_7_V_V_full_n : STD_LOGIC;
-    signal iq_7_V_V_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal iq_7_V_V_empty_n : STD_LOGIC;
+    signal iq_V_data_0_V_full_n : STD_LOGIC;
+    signal iq_V_data_0_V_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal iq_V_data_0_V_empty_n : STD_LOGIC;
+    signal iq_V_data_1_V_full_n : STD_LOGIC;
+    signal iq_V_data_1_V_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal iq_V_data_1_V_empty_n : STD_LOGIC;
+    signal iq_V_data_2_V_full_n : STD_LOGIC;
+    signal iq_V_data_2_V_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal iq_V_data_2_V_empty_n : STD_LOGIC;
+    signal iq_V_data_3_V_full_n : STD_LOGIC;
+    signal iq_V_data_3_V_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal iq_V_data_3_V_empty_n : STD_LOGIC;
+    signal iq_V_data_4_V_full_n : STD_LOGIC;
+    signal iq_V_data_4_V_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal iq_V_data_4_V_empty_n : STD_LOGIC;
+    signal iq_V_data_5_V_full_n : STD_LOGIC;
+    signal iq_V_data_5_V_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal iq_V_data_5_V_empty_n : STD_LOGIC;
+    signal iq_V_data_6_V_full_n : STD_LOGIC;
+    signal iq_V_data_6_V_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal iq_V_data_6_V_empty_n : STD_LOGIC;
+    signal iq_V_data_7_V_full_n : STD_LOGIC;
+    signal iq_V_data_7_V_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal iq_V_data_7_V_empty_n : STD_LOGIC;
     signal start_for_process_lanes_U0_din : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_process_lanes_U0_full_n : STD_LOGIC;
     signal start_for_process_lanes_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
@@ -232,30 +232,30 @@ architecture behav of adc_to_opfb is
         qin_data_TDATA : IN STD_LOGIC_VECTOR (127 downto 0);
         qin_data_TVALID : IN STD_LOGIC;
         qin_data_TREADY : OUT STD_LOGIC;
-        iq_0_V_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        iq_0_V_V_full_n : IN STD_LOGIC;
-        iq_0_V_V_write : OUT STD_LOGIC;
-        iq_1_V_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        iq_1_V_V_full_n : IN STD_LOGIC;
-        iq_1_V_V_write : OUT STD_LOGIC;
-        iq_2_V_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        iq_2_V_V_full_n : IN STD_LOGIC;
-        iq_2_V_V_write : OUT STD_LOGIC;
-        iq_3_V_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        iq_3_V_V_full_n : IN STD_LOGIC;
-        iq_3_V_V_write : OUT STD_LOGIC;
-        iq_4_V_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        iq_4_V_V_full_n : IN STD_LOGIC;
-        iq_4_V_V_write : OUT STD_LOGIC;
-        iq_5_V_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        iq_5_V_V_full_n : IN STD_LOGIC;
-        iq_5_V_V_write : OUT STD_LOGIC;
-        iq_6_V_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        iq_6_V_V_full_n : IN STD_LOGIC;
-        iq_6_V_V_write : OUT STD_LOGIC;
-        iq_7_V_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        iq_7_V_V_full_n : IN STD_LOGIC;
-        iq_7_V_V_write : OUT STD_LOGIC );
+        iq_V_data_0_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        iq_V_data_0_V_full_n : IN STD_LOGIC;
+        iq_V_data_0_V_write : OUT STD_LOGIC;
+        iq_V_data_1_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        iq_V_data_1_V_full_n : IN STD_LOGIC;
+        iq_V_data_1_V_write : OUT STD_LOGIC;
+        iq_V_data_2_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        iq_V_data_2_V_full_n : IN STD_LOGIC;
+        iq_V_data_2_V_write : OUT STD_LOGIC;
+        iq_V_data_3_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        iq_V_data_3_V_full_n : IN STD_LOGIC;
+        iq_V_data_3_V_write : OUT STD_LOGIC;
+        iq_V_data_4_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        iq_V_data_4_V_full_n : IN STD_LOGIC;
+        iq_V_data_4_V_write : OUT STD_LOGIC;
+        iq_V_data_5_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        iq_V_data_5_V_full_n : IN STD_LOGIC;
+        iq_V_data_5_V_write : OUT STD_LOGIC;
+        iq_V_data_6_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        iq_V_data_6_V_full_n : IN STD_LOGIC;
+        iq_V_data_6_V_write : OUT STD_LOGIC;
+        iq_V_data_7_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        iq_V_data_7_V_full_n : IN STD_LOGIC;
+        iq_V_data_7_V_write : OUT STD_LOGIC );
     end component;
 
 
@@ -268,30 +268,30 @@ architecture behav of adc_to_opfb is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        iqstream_0_V_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        iqstream_0_V_V_empty_n : IN STD_LOGIC;
-        iqstream_0_V_V_read : OUT STD_LOGIC;
-        iqstream_1_V_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        iqstream_1_V_V_empty_n : IN STD_LOGIC;
-        iqstream_1_V_V_read : OUT STD_LOGIC;
-        iqstream_2_V_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        iqstream_2_V_V_empty_n : IN STD_LOGIC;
-        iqstream_2_V_V_read : OUT STD_LOGIC;
-        iqstream_3_V_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        iqstream_3_V_V_empty_n : IN STD_LOGIC;
-        iqstream_3_V_V_read : OUT STD_LOGIC;
-        iqstream_4_V_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        iqstream_4_V_V_empty_n : IN STD_LOGIC;
-        iqstream_4_V_V_read : OUT STD_LOGIC;
-        iqstream_5_V_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        iqstream_5_V_V_empty_n : IN STD_LOGIC;
-        iqstream_5_V_V_read : OUT STD_LOGIC;
-        iqstream_6_V_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        iqstream_6_V_V_empty_n : IN STD_LOGIC;
-        iqstream_6_V_V_read : OUT STD_LOGIC;
-        iqstream_7_V_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        iqstream_7_V_V_empty_n : IN STD_LOGIC;
-        iqstream_7_V_V_read : OUT STD_LOGIC;
+        iqstream_V_data_0_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        iqstream_V_data_0_V_empty_n : IN STD_LOGIC;
+        iqstream_V_data_0_V_read : OUT STD_LOGIC;
+        iqstream_V_data_1_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        iqstream_V_data_1_V_empty_n : IN STD_LOGIC;
+        iqstream_V_data_1_V_read : OUT STD_LOGIC;
+        iqstream_V_data_2_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        iqstream_V_data_2_V_empty_n : IN STD_LOGIC;
+        iqstream_V_data_2_V_read : OUT STD_LOGIC;
+        iqstream_V_data_3_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        iqstream_V_data_3_V_empty_n : IN STD_LOGIC;
+        iqstream_V_data_3_V_read : OUT STD_LOGIC;
+        iqstream_V_data_4_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        iqstream_V_data_4_V_empty_n : IN STD_LOGIC;
+        iqstream_V_data_4_V_read : OUT STD_LOGIC;
+        iqstream_V_data_5_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        iqstream_V_data_5_V_empty_n : IN STD_LOGIC;
+        iqstream_V_data_5_V_read : OUT STD_LOGIC;
+        iqstream_V_data_6_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        iqstream_V_data_6_V_empty_n : IN STD_LOGIC;
+        iqstream_V_data_6_V_read : OUT STD_LOGIC;
+        iqstream_V_data_7_V_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        iqstream_V_data_7_V_empty_n : IN STD_LOGIC;
+        iqstream_V_data_7_V_read : OUT STD_LOGIC;
         lane_0_TREADY : IN STD_LOGIC;
         lane_1_TREADY : IN STD_LOGIC;
         lane_2_TREADY : IN STD_LOGIC;
@@ -409,30 +409,30 @@ begin
         qin_data_TDATA => qstream_data_TDATA,
         qin_data_TVALID => qstream_data_TVALID,
         qin_data_TREADY => adc2iq_U0_qin_data_TREADY,
-        iq_0_V_V_din => adc2iq_U0_iq_0_V_V_din,
-        iq_0_V_V_full_n => iq_0_V_V_full_n,
-        iq_0_V_V_write => adc2iq_U0_iq_0_V_V_write,
-        iq_1_V_V_din => adc2iq_U0_iq_1_V_V_din,
-        iq_1_V_V_full_n => iq_1_V_V_full_n,
-        iq_1_V_V_write => adc2iq_U0_iq_1_V_V_write,
-        iq_2_V_V_din => adc2iq_U0_iq_2_V_V_din,
-        iq_2_V_V_full_n => iq_2_V_V_full_n,
-        iq_2_V_V_write => adc2iq_U0_iq_2_V_V_write,
-        iq_3_V_V_din => adc2iq_U0_iq_3_V_V_din,
-        iq_3_V_V_full_n => iq_3_V_V_full_n,
-        iq_3_V_V_write => adc2iq_U0_iq_3_V_V_write,
-        iq_4_V_V_din => adc2iq_U0_iq_4_V_V_din,
-        iq_4_V_V_full_n => iq_4_V_V_full_n,
-        iq_4_V_V_write => adc2iq_U0_iq_4_V_V_write,
-        iq_5_V_V_din => adc2iq_U0_iq_5_V_V_din,
-        iq_5_V_V_full_n => iq_5_V_V_full_n,
-        iq_5_V_V_write => adc2iq_U0_iq_5_V_V_write,
-        iq_6_V_V_din => adc2iq_U0_iq_6_V_V_din,
-        iq_6_V_V_full_n => iq_6_V_V_full_n,
-        iq_6_V_V_write => adc2iq_U0_iq_6_V_V_write,
-        iq_7_V_V_din => adc2iq_U0_iq_7_V_V_din,
-        iq_7_V_V_full_n => iq_7_V_V_full_n,
-        iq_7_V_V_write => adc2iq_U0_iq_7_V_V_write);
+        iq_V_data_0_V_din => adc2iq_U0_iq_V_data_0_V_din,
+        iq_V_data_0_V_full_n => iq_V_data_0_V_full_n,
+        iq_V_data_0_V_write => adc2iq_U0_iq_V_data_0_V_write,
+        iq_V_data_1_V_din => adc2iq_U0_iq_V_data_1_V_din,
+        iq_V_data_1_V_full_n => iq_V_data_1_V_full_n,
+        iq_V_data_1_V_write => adc2iq_U0_iq_V_data_1_V_write,
+        iq_V_data_2_V_din => adc2iq_U0_iq_V_data_2_V_din,
+        iq_V_data_2_V_full_n => iq_V_data_2_V_full_n,
+        iq_V_data_2_V_write => adc2iq_U0_iq_V_data_2_V_write,
+        iq_V_data_3_V_din => adc2iq_U0_iq_V_data_3_V_din,
+        iq_V_data_3_V_full_n => iq_V_data_3_V_full_n,
+        iq_V_data_3_V_write => adc2iq_U0_iq_V_data_3_V_write,
+        iq_V_data_4_V_din => adc2iq_U0_iq_V_data_4_V_din,
+        iq_V_data_4_V_full_n => iq_V_data_4_V_full_n,
+        iq_V_data_4_V_write => adc2iq_U0_iq_V_data_4_V_write,
+        iq_V_data_5_V_din => adc2iq_U0_iq_V_data_5_V_din,
+        iq_V_data_5_V_full_n => iq_V_data_5_V_full_n,
+        iq_V_data_5_V_write => adc2iq_U0_iq_V_data_5_V_write,
+        iq_V_data_6_V_din => adc2iq_U0_iq_V_data_6_V_din,
+        iq_V_data_6_V_full_n => iq_V_data_6_V_full_n,
+        iq_V_data_6_V_write => adc2iq_U0_iq_V_data_6_V_write,
+        iq_V_data_7_V_din => adc2iq_U0_iq_V_data_7_V_din,
+        iq_V_data_7_V_full_n => iq_V_data_7_V_full_n,
+        iq_V_data_7_V_write => adc2iq_U0_iq_V_data_7_V_write);
 
     process_lanes_U0 : component process_lanes
     port map (
@@ -443,30 +443,30 @@ begin
         ap_continue => process_lanes_U0_ap_continue,
         ap_idle => process_lanes_U0_ap_idle,
         ap_ready => process_lanes_U0_ap_ready,
-        iqstream_0_V_V_dout => iq_0_V_V_dout,
-        iqstream_0_V_V_empty_n => iq_0_V_V_empty_n,
-        iqstream_0_V_V_read => process_lanes_U0_iqstream_0_V_V_read,
-        iqstream_1_V_V_dout => iq_1_V_V_dout,
-        iqstream_1_V_V_empty_n => iq_1_V_V_empty_n,
-        iqstream_1_V_V_read => process_lanes_U0_iqstream_1_V_V_read,
-        iqstream_2_V_V_dout => iq_2_V_V_dout,
-        iqstream_2_V_V_empty_n => iq_2_V_V_empty_n,
-        iqstream_2_V_V_read => process_lanes_U0_iqstream_2_V_V_read,
-        iqstream_3_V_V_dout => iq_3_V_V_dout,
-        iqstream_3_V_V_empty_n => iq_3_V_V_empty_n,
-        iqstream_3_V_V_read => process_lanes_U0_iqstream_3_V_V_read,
-        iqstream_4_V_V_dout => iq_4_V_V_dout,
-        iqstream_4_V_V_empty_n => iq_4_V_V_empty_n,
-        iqstream_4_V_V_read => process_lanes_U0_iqstream_4_V_V_read,
-        iqstream_5_V_V_dout => iq_5_V_V_dout,
-        iqstream_5_V_V_empty_n => iq_5_V_V_empty_n,
-        iqstream_5_V_V_read => process_lanes_U0_iqstream_5_V_V_read,
-        iqstream_6_V_V_dout => iq_6_V_V_dout,
-        iqstream_6_V_V_empty_n => iq_6_V_V_empty_n,
-        iqstream_6_V_V_read => process_lanes_U0_iqstream_6_V_V_read,
-        iqstream_7_V_V_dout => iq_7_V_V_dout,
-        iqstream_7_V_V_empty_n => iq_7_V_V_empty_n,
-        iqstream_7_V_V_read => process_lanes_U0_iqstream_7_V_V_read,
+        iqstream_V_data_0_V_dout => iq_V_data_0_V_dout,
+        iqstream_V_data_0_V_empty_n => iq_V_data_0_V_empty_n,
+        iqstream_V_data_0_V_read => process_lanes_U0_iqstream_V_data_0_V_read,
+        iqstream_V_data_1_V_dout => iq_V_data_1_V_dout,
+        iqstream_V_data_1_V_empty_n => iq_V_data_1_V_empty_n,
+        iqstream_V_data_1_V_read => process_lanes_U0_iqstream_V_data_1_V_read,
+        iqstream_V_data_2_V_dout => iq_V_data_2_V_dout,
+        iqstream_V_data_2_V_empty_n => iq_V_data_2_V_empty_n,
+        iqstream_V_data_2_V_read => process_lanes_U0_iqstream_V_data_2_V_read,
+        iqstream_V_data_3_V_dout => iq_V_data_3_V_dout,
+        iqstream_V_data_3_V_empty_n => iq_V_data_3_V_empty_n,
+        iqstream_V_data_3_V_read => process_lanes_U0_iqstream_V_data_3_V_read,
+        iqstream_V_data_4_V_dout => iq_V_data_4_V_dout,
+        iqstream_V_data_4_V_empty_n => iq_V_data_4_V_empty_n,
+        iqstream_V_data_4_V_read => process_lanes_U0_iqstream_V_data_4_V_read,
+        iqstream_V_data_5_V_dout => iq_V_data_5_V_dout,
+        iqstream_V_data_5_V_empty_n => iq_V_data_5_V_empty_n,
+        iqstream_V_data_5_V_read => process_lanes_U0_iqstream_V_data_5_V_read,
+        iqstream_V_data_6_V_dout => iq_V_data_6_V_dout,
+        iqstream_V_data_6_V_empty_n => iq_V_data_6_V_empty_n,
+        iqstream_V_data_6_V_read => process_lanes_U0_iqstream_V_data_6_V_read,
+        iqstream_V_data_7_V_dout => iq_V_data_7_V_dout,
+        iqstream_V_data_7_V_empty_n => iq_V_data_7_V_empty_n,
+        iqstream_V_data_7_V_read => process_lanes_U0_iqstream_V_data_7_V_read,
         lane_0_TREADY => lane_0_TREADY,
         lane_1_TREADY => lane_1_TREADY,
         lane_2_TREADY => lane_2_TREADY,
@@ -532,109 +532,109 @@ begin
         lane_14_TLAST => process_lanes_U0_lane_14_TLAST,
         lane_15_TLAST => process_lanes_U0_lane_15_TLAST);
 
-    iq_0_V_V_U : component fifo_w32_d2_A
+    iq_V_data_0_V_U : component fifo_w32_d2_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => adc2iq_U0_iq_0_V_V_din,
-        if_full_n => iq_0_V_V_full_n,
-        if_write => adc2iq_U0_iq_0_V_V_write,
-        if_dout => iq_0_V_V_dout,
-        if_empty_n => iq_0_V_V_empty_n,
-        if_read => process_lanes_U0_iqstream_0_V_V_read);
+        if_din => adc2iq_U0_iq_V_data_0_V_din,
+        if_full_n => iq_V_data_0_V_full_n,
+        if_write => adc2iq_U0_iq_V_data_0_V_write,
+        if_dout => iq_V_data_0_V_dout,
+        if_empty_n => iq_V_data_0_V_empty_n,
+        if_read => process_lanes_U0_iqstream_V_data_0_V_read);
 
-    iq_1_V_V_U : component fifo_w32_d2_A
+    iq_V_data_1_V_U : component fifo_w32_d2_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => adc2iq_U0_iq_1_V_V_din,
-        if_full_n => iq_1_V_V_full_n,
-        if_write => adc2iq_U0_iq_1_V_V_write,
-        if_dout => iq_1_V_V_dout,
-        if_empty_n => iq_1_V_V_empty_n,
-        if_read => process_lanes_U0_iqstream_1_V_V_read);
+        if_din => adc2iq_U0_iq_V_data_1_V_din,
+        if_full_n => iq_V_data_1_V_full_n,
+        if_write => adc2iq_U0_iq_V_data_1_V_write,
+        if_dout => iq_V_data_1_V_dout,
+        if_empty_n => iq_V_data_1_V_empty_n,
+        if_read => process_lanes_U0_iqstream_V_data_1_V_read);
 
-    iq_2_V_V_U : component fifo_w32_d2_A
+    iq_V_data_2_V_U : component fifo_w32_d2_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => adc2iq_U0_iq_2_V_V_din,
-        if_full_n => iq_2_V_V_full_n,
-        if_write => adc2iq_U0_iq_2_V_V_write,
-        if_dout => iq_2_V_V_dout,
-        if_empty_n => iq_2_V_V_empty_n,
-        if_read => process_lanes_U0_iqstream_2_V_V_read);
+        if_din => adc2iq_U0_iq_V_data_2_V_din,
+        if_full_n => iq_V_data_2_V_full_n,
+        if_write => adc2iq_U0_iq_V_data_2_V_write,
+        if_dout => iq_V_data_2_V_dout,
+        if_empty_n => iq_V_data_2_V_empty_n,
+        if_read => process_lanes_U0_iqstream_V_data_2_V_read);
 
-    iq_3_V_V_U : component fifo_w32_d2_A
+    iq_V_data_3_V_U : component fifo_w32_d2_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => adc2iq_U0_iq_3_V_V_din,
-        if_full_n => iq_3_V_V_full_n,
-        if_write => adc2iq_U0_iq_3_V_V_write,
-        if_dout => iq_3_V_V_dout,
-        if_empty_n => iq_3_V_V_empty_n,
-        if_read => process_lanes_U0_iqstream_3_V_V_read);
+        if_din => adc2iq_U0_iq_V_data_3_V_din,
+        if_full_n => iq_V_data_3_V_full_n,
+        if_write => adc2iq_U0_iq_V_data_3_V_write,
+        if_dout => iq_V_data_3_V_dout,
+        if_empty_n => iq_V_data_3_V_empty_n,
+        if_read => process_lanes_U0_iqstream_V_data_3_V_read);
 
-    iq_4_V_V_U : component fifo_w32_d2_A
+    iq_V_data_4_V_U : component fifo_w32_d2_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => adc2iq_U0_iq_4_V_V_din,
-        if_full_n => iq_4_V_V_full_n,
-        if_write => adc2iq_U0_iq_4_V_V_write,
-        if_dout => iq_4_V_V_dout,
-        if_empty_n => iq_4_V_V_empty_n,
-        if_read => process_lanes_U0_iqstream_4_V_V_read);
+        if_din => adc2iq_U0_iq_V_data_4_V_din,
+        if_full_n => iq_V_data_4_V_full_n,
+        if_write => adc2iq_U0_iq_V_data_4_V_write,
+        if_dout => iq_V_data_4_V_dout,
+        if_empty_n => iq_V_data_4_V_empty_n,
+        if_read => process_lanes_U0_iqstream_V_data_4_V_read);
 
-    iq_5_V_V_U : component fifo_w32_d2_A
+    iq_V_data_5_V_U : component fifo_w32_d2_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => adc2iq_U0_iq_5_V_V_din,
-        if_full_n => iq_5_V_V_full_n,
-        if_write => adc2iq_U0_iq_5_V_V_write,
-        if_dout => iq_5_V_V_dout,
-        if_empty_n => iq_5_V_V_empty_n,
-        if_read => process_lanes_U0_iqstream_5_V_V_read);
+        if_din => adc2iq_U0_iq_V_data_5_V_din,
+        if_full_n => iq_V_data_5_V_full_n,
+        if_write => adc2iq_U0_iq_V_data_5_V_write,
+        if_dout => iq_V_data_5_V_dout,
+        if_empty_n => iq_V_data_5_V_empty_n,
+        if_read => process_lanes_U0_iqstream_V_data_5_V_read);
 
-    iq_6_V_V_U : component fifo_w32_d2_A
+    iq_V_data_6_V_U : component fifo_w32_d2_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => adc2iq_U0_iq_6_V_V_din,
-        if_full_n => iq_6_V_V_full_n,
-        if_write => adc2iq_U0_iq_6_V_V_write,
-        if_dout => iq_6_V_V_dout,
-        if_empty_n => iq_6_V_V_empty_n,
-        if_read => process_lanes_U0_iqstream_6_V_V_read);
+        if_din => adc2iq_U0_iq_V_data_6_V_din,
+        if_full_n => iq_V_data_6_V_full_n,
+        if_write => adc2iq_U0_iq_V_data_6_V_write,
+        if_dout => iq_V_data_6_V_dout,
+        if_empty_n => iq_V_data_6_V_empty_n,
+        if_read => process_lanes_U0_iqstream_V_data_6_V_read);
 
-    iq_7_V_V_U : component fifo_w32_d2_A
+    iq_V_data_7_V_U : component fifo_w32_d2_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => adc2iq_U0_iq_7_V_V_din,
-        if_full_n => iq_7_V_V_full_n,
-        if_write => adc2iq_U0_iq_7_V_V_write,
-        if_dout => iq_7_V_V_dout,
-        if_empty_n => iq_7_V_V_empty_n,
-        if_read => process_lanes_U0_iqstream_7_V_V_read);
+        if_din => adc2iq_U0_iq_V_data_7_V_din,
+        if_full_n => iq_V_data_7_V_full_n,
+        if_write => adc2iq_U0_iq_V_data_7_V_write,
+        if_dout => iq_V_data_7_V_dout,
+        if_empty_n => iq_V_data_7_V_empty_n,
+        if_read => process_lanes_U0_iqstream_V_data_7_V_read);
 
     start_for_processrcU_U : component start_for_processrcU
     port map (
