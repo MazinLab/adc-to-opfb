@@ -39,10 +39,10 @@ void process_lanes(hls::stream<iqadcgroup_t> &iqstream, pfbaxisin_t lane[N_LANES
 	eachlane: for (int i=0;i<N_ADC_OUT;i++) {
 #pragma HLS UNROLL
 
-		lane[2*i].data = even_lane_z1.data[i];
-		lane[2*i+1].data = !cycle[0] ? odd_delay_iq.data[i]:iq.data[i];
-		lane[2*i].last=cycle==255;
-		lane[2*i+1].last=cycle==255;
+		lane[i].data = even_lane_z1.data[i];
+		lane[i].last=cycle==255;
+		lane[i+8].data = !cycle[0] ? odd_delay_iq.data[i]:iq.data[i];
+		lane[i+8].last=cycle==255;
 	}
 
 	//Delay to get things back in sync
