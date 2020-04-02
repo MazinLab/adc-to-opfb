@@ -4,7 +4,7 @@
 #include "hls_stream.h"
 using namespace std;
 
-#define N_CYCLES 3
+#define N_CYCLES 4
 #define __PRINT_PATTERN__ 1
 #define PRINT_LANES 20
 
@@ -39,7 +39,7 @@ int main(){
 			int cycle=N_GROUPS*i+j;
 			int comma = cycle % 128;
 			if (comma<3 || comma>126) {
-				cout<<setw(4)<<cycle;
+				cout<<setw(9)<<cycle;
 				//if (i==0 && j==0) continue;
 				if (comma==2) cout<<" ... ";
 				else if (comma!=126) cout<<", ";
@@ -63,8 +63,8 @@ int main(){
 				bool odd_cycle=cycle%2;
 				bool even_cycle=(cycle+1)%2;
 
-				int predicted=N_LANES*(cycle-1)/2 + 8*odd_lane + k/2 - 2040*even_cycle;
-				int lanev=lane[cycle][k].data.to_int()&0xffff;// real();
+				int predicted=N_LANES*cycle/2 + k - 2040*even_cycle-8;
+				int lanev=(lane[cycle][k].data.to_int()&0xffff);// real();
 
 				if ((k<PRINT_LANES&&i>0)&&!PRINT_LANES) {
 					cout<<"p"<<predicted;
@@ -76,14 +76,15 @@ int main(){
 				#ifdef __PRINT_PATTERN__
 					int comma = cycle % 128;
 					if (comma<3 || comma>126) {
-						cout<<setw(4)<<lanev;
+						cout<<setw(4)<<(cycle>511 ? lanev:lanev)<<":";
+						cout<<setw(4)<<(cycle>511 ? predicted:0);
 						//if (i==0 && j==0) continue;
 						if (comma==2) cout<<" ... ";
 						else if (comma!=126) cout<<", ";
 					}
 				#endif
 
-				fail|= (predicted!=lanev&&i>0);
+				fail|= (predicted!=lanev&& cycle>511);
 			}
 		}
 		if (k<PRINT_LANES) cout<<"\n";
