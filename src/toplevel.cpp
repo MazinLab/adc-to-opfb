@@ -59,9 +59,9 @@ void adc_to_opfb(adcaxis_t &istream, adcaxis_t &qstream, pfbaxisin_t lane[N_LANE
 #pragma HLS DATAFLOW
 #pragma HLS DATA_PACK variable=istream
 #pragma HLS DATA_PACK variable=qstream
-#pragma HLS INTERFACE axis off port=istream
-#pragma HLS INTERFACE axis off port=qstream
-#pragma HLS INTERFACE axis off port=lane
+#pragma HLS INTERFACE axis register reverse port=istream
+#pragma HLS INTERFACE axis register reverse port=qstream
+#pragma HLS INTERFACE axis register forward port=lane
 #pragma HLS ARRAY_PARTITION variable=lane complete
 #pragma HLS INTERFACE ap_ctrl_none port=return
 
