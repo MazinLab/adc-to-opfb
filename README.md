@@ -16,9 +16,9 @@ Interface:
     #pragma HLS DATAFLOW
     #pragma HLS DATA_PACK variable=istream
     #pragma HLS DATA_PACK variable=qstream
-    #pragma HLS INTERFACE axis port=istream register=reverse
-    #pragma HLS INTERFACE axis port=qstream register=reverse
-    #pragma HLS INTERFACE axis port=lane register=forward
+    #pragma HLS INTERFACE axis port=istream register
+    #pragma HLS INTERFACE axis port=qstream register
+    #pragma HLS INTERFACE axis port=lane register
     #pragma HLS ARRAY_PARTITION variable=lane complete
     #pragma HLS INTERFACE ap_ctrl_none port=return
 
