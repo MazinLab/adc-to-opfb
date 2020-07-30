@@ -8,7 +8,7 @@ add_files src/datatypes.hpp
 add_files -tb src/tb.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 
 # Specify the top-level function for synthesis
-set_top top
+set_top adc_to_opfb
 
 # Create solution1
 open_solution -reset "solution1"
