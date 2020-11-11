@@ -11,15 +11,15 @@ using namespace std;
 int main(){
 
 	adcaxis_t istream[N_GROUPS*N_CYCLES], qstream[N_GROUPS*N_CYCLES];
-	pfbaxisin_t lane[N_GROUPS*N_CYCLES][N_LANES];
+	pfbaxisinarray_t lane[N_GROUPS*N_CYCLES][N_LANES];
 	bool fail=false;
 
 	//Generate data
 	for (int i=0; i<N_CYCLES; i++){
 		for (int j=0; j<N_GROUPS; j++){
 			for (int k=0; k<N_ADC_OUT; k++){
-				istream[i*N_GROUPS+j].data[k]=i*N_GROUPS*N_ADC_OUT+j*N_ADC_OUT+k;
-				qstream[i*N_GROUPS+j].data[k]=0;//i*N_GROUPS*N_ADC_OUT+j*N_ADC_OUT+k;
+				istream[i*N_GROUPS+j].range(16*(k+1)-1,16*k)=i*N_GROUPS*N_ADC_OUT+j*N_ADC_OUT+k;
+				qstream[i*N_GROUPS+j].range(16*(k+1)-1,16*k)=0;//i*N_GROUPS*N_ADC_OUT+j*N_ADC_OUT+k;
 			}
 		}
 	}
@@ -27,7 +27,14 @@ int main(){
 	//Run the stream input
 	for (int i=0; i<N_CYCLES;i++) { // Go through more than once to see the phase increment
 		for (int j=0;j<N_GROUPS;j++) { //takes N_RES_GROUPS cycles to get through each resonator once
-			adc_to_opfb(istream[i*N_GROUPS+j], qstream[i*N_GROUPS+j], lane[i*N_GROUPS+j]);
+			pfbaxisin_t tmp;
+			tmp.data=0;
+			tmp.last=0;
+			adc_to_opfb(istream[i*N_GROUPS+j], qstream[i*N_GROUPS+j], tmp);
+			for (int k=0; k<N_LANES; k++) {
+				lane[i*N_GROUPS+j][k].data=tmp.data.range(32*(k+1)-1,32*k);
+				lane[i*N_GROUPS+j][k].last=tmp.last;
+			}
 		}
 	}
 

@@ -13,18 +13,29 @@ typedef unsigned short rawsample_t;
 
 typedef ap_uint<32> iq_t;
 
-typedef struct {
-	rawsample_t data[N_ADC_OUT];
-} adcaxis_t;
+//typedef struct {
+//	rawsample_t data[N_ADC_OUT];
+//} adcaxis_t;
+
+typedef ap_uint<128> adcaxis_t;
+
 
 typedef struct {
 	iq_t data;
 	ap_uint<1> last;
-} pfbaxisin_t;
+} pfbaxisinarray_t;
 
 typedef struct {
-	iq_t data[N_ADC_OUT];
-} iqadcgroup_t;
+	ap_uint<512> data;
+	ap_uint<1> last;
+} pfbaxisin_t;
+
+//typedef struct {
+//	iq_t data[N_ADC_OUT];
+//} iqadcgroup_t;
+
+typedef ap_uint<256> iqadcgroup_t;
+
 
 typedef struct {
 	iq_t data[N_LANES];
