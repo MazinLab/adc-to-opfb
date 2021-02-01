@@ -28,17 +28,6 @@ void process_lanes(hls::stream<iqadcgroup_t> &iqstream, pfbaxisin_t &lane) {
 	even_delay_iq = even_delay.shift(iq, N_DELAY-1, !cycle[0]);
 	odd_delay_iq = odd_delay.shift(iq, N_DELAY-1, cycle[0]);
 
-//	eachlane: for (int i=0;i<N_ADC_OUT;i++) {
-//#pragma HLS UNROLL
-//		if (primed) { //This probably isn't necessary but it makes the output a bit cleaner
-//			outtmp[i] = even_lane_z1.data[i];
-//			outtmp[i+8] = !cycle[0] ? odd_delay_iq.data[i]:iq.data[i];
-//		} else {
-//			outtmp[i]=0;
-//			outtmp[i+8]=0;
-//		}
-//	}
-
 	ap_uint<512> outtmp_even=0, outtmp_odd=0;
 	if (primed) { //This probably isn't necessary but it makes the output a bit cleaner
 		outtmp_even.range(32*N_ADC_OUT-1, 0) = even_lane_z1;
