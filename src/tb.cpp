@@ -12,6 +12,10 @@ int main(){
 
 	adcaxis_t istream[N_GROUPS*N_CYCLES], qstream[N_GROUPS*N_CYCLES];
 	pfbaxisinarray_t lane[N_GROUPS*N_CYCLES][N_LANES];
+
+	adcstream_t iin, qin;
+	firstream_t iqout;
+
 	bool fail=false;
 
 	//Generate data
@@ -27,10 +31,15 @@ int main(){
 	//Run the stream input
 	for (int i=0; i<N_CYCLES;i++) { // Go through more than once to see the phase increment
 		for (int j=0;j<N_GROUPS;j++) { //takes N_RES_GROUPS cycles to get through each resonator once
-			pfbaxisin_t tmp;
+			ap_axiu<512,0,0,0> tmp;
 			tmp.data=0;
 			tmp.last=0;
-			adc_to_opfb(istream[i*N_GROUPS+j], qstream[i*N_GROUPS+j], tmp);
+			iin.write(istream[i*N_GROUPS+j]);
+			qin.write(qstream[i*N_GROUPS+j]);
+
+			adc_to_opfb(iin, qin, iqout);
+
+			iqout.read(tmp);
 			for (int k=0; k<N_LANES; k++) {
 				lane[i*N_GROUPS+j][k].data=tmp.data.range(32*(k+1)-1,32*k);
 				lane[i*N_GROUPS+j][k].last=tmp.last;

@@ -1,10 +1,11 @@
 #include "toplevel.hpp"
 
-void adc2iq(adcaxis_t &iin, adcaxis_t &qin, hls::stream<iqadcgroup_t> &iq) {
+
+void adc2iq(adcstream_t &iin, adcstream_t &qin, hls::stream<iqadcgroup_t> &iq) {
 //Package raw ADC samples into complex fixed point IQ values
 #pragma HLS INLINE OFF  //for dataflow
-	adcaxis_t istream=iin;
-	adcaxis_t qstream=qin;
+	adcaxis_t istream=iin.read();
+	adcaxis_t qstream=qin.read();
 	iqadcgroup_t group;
 
 	adcpack: for (int i=0;i<N_ADC_OUT;i++) {
@@ -15,14 +16,14 @@ void adc2iq(adcaxis_t &iin, adcaxis_t &qin, hls::stream<iqadcgroup_t> &iq) {
 }
 
 
-void process_lanes(hls::stream<iqadcgroup_t> &iqstream, pfbaxisin_t &lane) {
+void process_lanes(hls::stream<iqadcgroup_t> &iqstream, firstream_t &lanes) {
 #pragma HLS PIPELINE II=1
 	static ap_uint<9> cycle;
 	static bool primed;
 	static iq128delay_t even_delay, odd_delay;
 	static iqadcgroup_t even_lane_z1;
 	iqadcgroup_t iq, even_delay_iq, odd_delay_iq;
-
+	ap_axiu<512,0,0,0> lane;
 	iq=iqstream.read();
 
 	even_delay_iq = even_delay.shift(iq, N_DELAY-1, !cycle[0]);
@@ -38,6 +39,7 @@ void process_lanes(hls::stream<iqadcgroup_t> &iqstream, pfbaxisin_t &lane) {
 
 	lane.data=cycle[0] ? outtmp_odd:outtmp_even;
 	lane.last=cycle==511;
+	lanes.write(lane);
 
 	//Delay to get all the lanes in sync
 	even_lane_z1= cycle[0] ? even_delay_iq:iq;
@@ -46,17 +48,55 @@ void process_lanes(hls::stream<iqadcgroup_t> &iqstream, pfbaxisin_t &lane) {
 	cycle++;
 }
 
-void adc_to_opfb(adcaxis_t &istream, adcaxis_t &qstream, pfbaxisin_t &lane) {
+
+void process_lanes_nostatic(hls::stream<iqadcgroup_t> &iqstream, pfbaxisin_t &lane) {
+#pragma HLS PIPELINE II=1
+	static ap_uint<9> cycle;
+	static bool primed;
+	static iq128delay_t even_delay, odd_delay;
+	static iqadcgroup_t even_lane_z1;
+	iqadcgroup_t iq, even_delay_iq, odd_delay_iq;
+
+//	typedef ap_shift_reg<iqadcgroup_t, 128> iq128delay_t;
+
+
+
+	for (ap_uint<9> cycle=0; cycle<512; cycle++) {
+
+		iq=iqstream.read();
+
+		even_delay_iq = even_delay.shift(iq, N_DELAY-1, !cycle[0]);
+		odd_delay_iq = odd_delay.shift(iq, N_DELAY-1, cycle[0]);
+
+		ap_uint<512> outtmp_even=0, outtmp_odd=0;
+		if (primed) { //This probably isn't necessary but it makes the output a bit cleaner
+			outtmp_even.range(32*N_ADC_OUT-1, 0) = even_lane_z1;
+			outtmp_even.range(32*N_LANES-1, 32*N_ADC_OUT) = odd_delay_iq;
+			outtmp_odd.range(32*N_ADC_OUT-1, 0) = even_lane_z1;
+			outtmp_odd.range(32*N_LANES-1, 32*N_ADC_OUT) = iq;
+		}
+
+		lane.data=cycle[0] ? outtmp_odd:outtmp_even;
+		lane.last=cycle==511;
+
+		//Delay to get all the lanes in sync
+		even_lane_z1= cycle[0] ? even_delay_iq:iq;
+
+		primed |= cycle==511;
+	}
+
+}
+
+
+void adc_to_opfb(adcstream_t &istream, adcstream_t &qstream, firstream_t &lanes) {
 #pragma HLS DATAFLOW
-//#pragma HLS DATA_PACK variable=istream
-//#pragma HLS DATA_PACK variable=qstream
 #pragma HLS INTERFACE axis register port=istream
 #pragma HLS INTERFACE axis register port=qstream
 #pragma HLS INTERFACE axis register port=lane
 #pragma HLS INTERFACE ap_ctrl_none port=return
 
-	hls::stream<iqadcgroup_t> iq;
+	hls::stream<iqadcgroup_t> iq("iq");
 	adc2iq(istream, qstream, iq);
-	process_lanes(iq, lane);
+	process_lanes(iq, lanes);
 
 }
