@@ -1,7 +1,7 @@
 #include "datatypes.hpp"
 #include "ap_shift_reg.h"
 #include "hls_stream.h"
-#include "axi.h"
+#include "ap_axi_sdata.h"
 
 
 typedef hls::stream<ap_uint<128>> adcstream_t;

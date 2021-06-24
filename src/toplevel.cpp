@@ -92,7 +92,7 @@ void adc_to_opfb(adcstream_t &istream, adcstream_t &qstream, firstream_t &lanes)
 #pragma HLS DATAFLOW
 #pragma HLS INTERFACE axis register port=istream
 #pragma HLS INTERFACE axis register port=qstream
-#pragma HLS INTERFACE axis register port=lane
+#pragma HLS INTERFACE axis register port=lanes
 #pragma HLS INTERFACE ap_ctrl_none port=return
 
 	hls::stream<iqadcgroup_t> iq("iq");
