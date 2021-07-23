@@ -4,6 +4,8 @@
 void adc2iq(adcstream_t &iin, adcstream_t &qin, hls::stream<iqadcgroup_t> &iq) {
 //Package raw ADC samples into complex fixed point IQ values
 #pragma HLS INLINE OFF  //for dataflow
+#pragma HLS PIPELINE II=1
+#pragma HLS INTERFACE ap_ctrl_none port=return
 	adcaxis_t istream=iin.read();
 	adcaxis_t qstream=qin.read();
 	iqadcgroup_t group;
@@ -18,6 +20,7 @@ void adc2iq(adcstream_t &iin, adcstream_t &qin, hls::stream<iqadcgroup_t> &iq) {
 
 void process_lanes(hls::stream<iqadcgroup_t> &iqstream, firstream_t &lanes) {
 #pragma HLS PIPELINE II=1
+#pragma HLS INTERFACE ap_ctrl_none port=return
 	static ap_uint<9> cycle;
 	static bool primed;
 	static iq128delay_t even_delay, odd_delay;
