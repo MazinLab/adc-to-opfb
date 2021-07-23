@@ -23,23 +23,26 @@ void process_lanes(hls::stream<iqadcgroup_t> &iqstream, firstream_t &lanes) {
 	static iq128delay_t even_delay, odd_delay;
 	static iqadcgroup_t even_lane_z1;
 	iqadcgroup_t iq, even_delay_iq, odd_delay_iq;
-	ap_axiu<512,0,0,0> lane;
+	ap_axiu<512,0,0,0> lane, lane0;
 	iq=iqstream.read();
 
 	even_delay_iq = even_delay.shift(iq, N_DELAY-1, !cycle[0]);
 	odd_delay_iq = odd_delay.shift(iq, N_DELAY-1, cycle[0]);
 
 	ap_uint<512> outtmp_even=0, outtmp_odd=0;
-	if (primed) { //This probably isn't necessary but it makes the output a bit cleaner
-		outtmp_even.range(32*N_ADC_OUT-1, 0) = even_lane_z1;
-		outtmp_even.range(32*N_LANES-1, 32*N_ADC_OUT) = odd_delay_iq;
-		outtmp_odd.range(32*N_ADC_OUT-1, 0) = even_lane_z1;
-		outtmp_odd.range(32*N_LANES-1, 32*N_ADC_OUT) = iq;
-	}
+
+	outtmp_even.range(32*N_ADC_OUT-1, 0) = even_lane_z1;
+	outtmp_even.range(32*N_LANES-1, 32*N_ADC_OUT) = odd_delay_iq;
+	outtmp_odd.range(32*N_ADC_OUT-1, 0) = even_lane_z1;
+	outtmp_odd.range(32*N_LANES-1, 32*N_ADC_OUT) = iq;
 
 	lane.data=cycle[0] ? outtmp_odd:outtmp_even;
 	lane.last=cycle==511;
-	lanes.write(lane);
+	lane0.last=cycle==511;
+	lane0.data=0;
+	if (primed)  //This might not be necessary but it makes the output a bit cleaner
+		lanes.write(lane);
+	else
 
 	//Delay to get all the lanes in sync
 	even_lane_z1= cycle[0] ? even_delay_iq:iq;
