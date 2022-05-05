@@ -43,15 +43,15 @@ void process_lanes(hls::stream<iqadcgroup_t> &iqstream, firstream_t &lanes) {
 	lane.last=cycle==511;
 	lane0.last=cycle==511;
 	lane0.data=0;
-	if (primed)  //This might not be necessary but it makes the output a bit cleaner
+//	if (primed)  //This might not be necessary but it makes the output a bit cleaner
 		lanes.write(lane);
-	else
-		lanes.write(lane0);
+//	else
+//		lanes.write(lane0);
 
 	//Delay to get all the lanes in sync
 	even_lane_z1= cycle[0] ? even_delay_iq:iq;
 
-	primed |= cycle==511;
+//	primed |= cycle==511;
 	cycle++;
 }
 
